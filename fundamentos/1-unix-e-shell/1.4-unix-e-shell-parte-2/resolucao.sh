@@ -44,6 +44,4 @@ cat phrases2.txt countries.txt > bunch_of_things.txt
 sleep 3
 
 #Exercicio 11
-sort bunch_of_things.txt | cat > bunch_of_thingsO.txt
-rm bunch_of_things.txt
-mv bunch_of_thingsO.txt bunch_of_things.txt
+sort -o bunch_of_things.txt bunch_of_things.txt
