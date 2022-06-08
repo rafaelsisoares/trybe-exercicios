@@ -6,28 +6,51 @@
         <style>
 
             h1 {
-                font-size: 65px;
+                font-size: 3em;
                 color: orange;
+                font-family: sans-serif;
+
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            p {
+                font-weight: 600;
+                font-family: monospace;
             }
 
             #color-list {
                 background-color: yellow;
+                line-height: 30px;
+                text-decoration: underline;
             }
 
             .paralist {
                 background-color: red;
                 color: green;
+                text-align: center;
+            }
+
+            #red {
+                background-color: red;
+                color: white;
+            }
+
+            #brown {
+                background-color: brown;
+                color: white;
             }
         </style>
     </head>
-
     <body>
         <h1>Exercícios 3.2</h1>
         <p class="paralist">Qual a sua cor favorita?</p>
         <ul id="color-list" class="paralist">
             <li>Amarelo</li>
-            <li>Vermelho</li>
-            <li>Marrom</li>
+            <li id="red">Vermelho</li>
+            <li id="brown">Marrom</li>
         </ul>
     </body>
 </html>
