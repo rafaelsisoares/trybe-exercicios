@@ -1,6 +1,5 @@
 div h3:only-child {
-    text-decoration: underline;
-    font-family: monospace;
+    
 }
 
 div:hover {
@@ -8,8 +7,10 @@ div:hover {
 }
 
 div:nth-child(5) {
-    font-size: 20px;
+    font-size: 25px;
     background-color: brown;
+    color: bisque
+    ;
 }
 
 div:nth-of-type(2n+1) {
@@ -18,17 +19,22 @@ div:nth-of-type(2n+1) {
 
 div:nth-of-type(1) {
     background-color: yellow;
+    text-decoration: underline;
+    
 }
 
 div:nth-of-type(2) {
     background-color: orange;
+    font-family: monospace;
 }
 
 div:nth-of-type(4) {
     background-color: darkgreen;
     color: white;
+    text-decoration: overline;
 }
 
 div:nth-of-type(5) {
     background-color: lightgreen;
+    font-family: sans-serif;
 }
