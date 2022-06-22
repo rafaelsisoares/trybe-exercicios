@@ -12,4 +12,10 @@ let soma = 0;
 for (let j = 0; j < numbers.length; j += 1) {
     soma += numbers[j];
 }
-console.log(soma);
+console.log('A soma de todos os valores é:', soma);
+
+//Para o terceiro exercício, calcule e imprima a média aritmética dos valores contidos no array;
+
+console.log('A média dos valores é:', soma / numbers.length);
+
+//Com o mesmo código do exercício anterior, caso o valor final seja maior que 20, imprima a mensagem: "valor maior que 20". Caso não seja, imprima a mensagem: "valor menor ou igual a 20";
