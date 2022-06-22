@@ -30,5 +30,29 @@ for (let k = 0; k < numbers.length; k += 1) {
 
 //Utilizando for, descubra qual o maior valor contido no array e imprima-o;
 
-let max = Math.max(...numbers);
-console.log('O maior valor é:', max);
+let maior = 0;
+for (let l = 0; l < numbers.length; l += 1) {
+    if (numbers[l] > maior) {
+        maior = numbers[l];
+    }
+}
+console.log('O maior valor é:', maior);
+
+/* let max = Math.max(...numbers);
+console.log('O maior valor é:', max); 
+Outro método de obter o maior valor de um array*/
+
+//Descubra quantos valores ímpares existem no array e imprima o resultado. Caso não exista nenhum, imprima a mensagem: "nenhum valor ímpar encontrado";
+let impar = 0;
+for (let m = 0; m < numbers.length; m += 1) {
+    if (numbers[m] % 2 > 0) {
+        impar += 1;
+    }
+}
+
+if (impar > 0) {
+    console.log('Existem', impar, 'valores ímpares');
+}else{
+    console.log('Nenhum valor ímpar encontrado');
+}
+
