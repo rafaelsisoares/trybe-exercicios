@@ -9,5 +9,5 @@ console.log(birthYear);
 birthYear = 2030;
 console.log(birthYear);
 
-birthCity = Maranello;
+birthCity = 'Maranello';
 console.log(birthCity);
