@@ -73,3 +73,9 @@ for (let o = 1; o <= 25; o += 1) {
     array25.push(o);
 }
 console.log(array25);
+
+//Utilizando o array criado no exercício anterior imprima o resultado da divisão de cada um dos elementos por 2.
+
+for (let p = 0; p < array25.length; p += 1) {
+    console.log(array25[p], 'dividido por 2 é:', array25[p] / 2);
+}
