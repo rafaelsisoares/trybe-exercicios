@@ -65,3 +65,11 @@ for (let n = 0; n < numbers.length; n += 1) {
     }
 }
 console.log('O menor valor é:', menor);
+
+//Utilizando for, crie um array que vá de 1 até 25 e imprima o resultado;
+
+let array25 = [];
+for (let o = 1; o <= 25; o += 1) {
+    array25.push(o);
+}
+console.log(array25);
