@@ -19,3 +19,11 @@ console.log('A soma de todos os valores é:', soma);
 console.log('A média dos valores é:', soma / numbers.length);
 
 //Com o mesmo código do exercício anterior, caso o valor final seja maior que 20, imprima a mensagem: "valor maior que 20". Caso não seja, imprima a mensagem: "valor menor ou igual a 20";
+
+for (let k = 0; k < numbers.length; k += 1) {
+    if (numbers[k] > 20) {
+        console.log('Valor maior que 20');
+    }else{
+        console.log('Valor menor ou igual a 20');
+    }
+}
