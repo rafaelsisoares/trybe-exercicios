@@ -27,3 +27,8 @@ for (let k = 0; k < numbers.length; k += 1) {
         console.log('Valor menor ou igual a 20');
     }
 }
+
+//Utilizando for, descubra qual o maior valor contido no array e imprima-o;
+
+let max = Math.max(...numbers);
+console.log('O maior valor é:', max);
