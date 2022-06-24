@@ -66,3 +66,26 @@ console.log("O livro favorito de " + leitor.nome + " " + leitor.sobrenome + " se
 
 leitor.livrosFavoritos.push({titulo: 'Harry Potter e o Prisioneiro de Azkaban', autor: 'JK Rowling', editora: 'Rocco'});
 
+//8 -  Acesse as chaves nome e livrosFavoritos e faça um console.log
+
+console.log(leitor.nome + ' tem ' + leitor.livrosFavoritos.length + ' livros favoritos.');
+
+
+//FUNÇÕES
+
+//1 - Crie uma função que receba uma string e retorne true se for um palíndromo, ou false, se não for.
+
+function palindromo(word) {
+    let invertedWord = '';
+    for (let i = word.length - 1; i >= 0; i -= 1) {
+        invertedWord = invertedWord + word[i];
+    }
+    if (word === invertedWord) {
+        return true;
+    }else{
+        return false;
+    }
+
+}
+
+console.log(palindromo('arara'));
