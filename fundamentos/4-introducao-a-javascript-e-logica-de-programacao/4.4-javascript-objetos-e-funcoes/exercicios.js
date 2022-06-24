@@ -8,3 +8,8 @@ let info = {
 //Valor esperado no console: "Bem-vinda: Margarida"
 
 console.log('Bem-vinda:', info.personagem);
+
+//2 - Insira no objeto uma nova propriedade com o nome de chave 'recorrente' e o valor 'Sim' e, em seguida, imprima o objeto no console.
+
+info.recorrente = 'Sim';
+console.log(info);
