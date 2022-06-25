@@ -50,21 +50,21 @@ let leitor = {
     sobrenome: 'Pessoa',
     idade: 21,
     livrosFavoritos: [
-      {
-        titulo: 'O Pior Dia de Todos',
-        autor: 'Daniela Kopsch',
-        editora: 'Tordesilhas',
-      },
+        {
+            titulo: 'O Pior Dia de Todos',
+            autor: 'Daniela Kopsch',
+            editora: 'Tordesilhas',
+        },
     ],
-  };
+};
 
 //6 - Acesse as chaves nome, sobrenome e titulo, que está dentro da chave livrosFavoritos, e faça um console.log.
 
-console.log("O livro favorito de " + leitor.nome + " " + leitor.sobrenome + " se chama " + leitor.livrosFavoritos[0].titulo );
+console.log("O livro favorito de " + leitor.nome + " " + leitor.sobrenome + " se chama " + leitor.livrosFavoritos[0].titulo);
 
 //7 - Adicione um novo livro favorito na chave livrosFavoritos, que é um array.
 
-leitor.livrosFavoritos.push({titulo: 'Harry Potter e o Prisioneiro de Azkaban', autor: 'JK Rowling', editora: 'Rocco'});
+leitor.livrosFavoritos.push({ titulo: 'Harry Potter e o Prisioneiro de Azkaban', autor: 'JK Rowling', editora: 'Rocco' });
 
 //8 -  Acesse as chaves nome e livrosFavoritos e faça um console.log
 
@@ -82,7 +82,7 @@ function palindromo(word) {
     }
     if (word === invertedWord) {
         return true;
-    }else{
+    } else {
         return false;
     }
 
@@ -101,7 +101,7 @@ function indiceDoMaior(array) {
             indexMax = key;
         }
     }
-    return indexMax;    
+    return indexMax;
 }
 
 console.log(indiceDoMaior(sequenciaNumerica));
@@ -138,6 +138,40 @@ console.log(maiorNome(nomes));
 
 // 5 - Crie uma função que receba um array de inteiros e retorne o inteiro que mais se repete.
 
+let integers = [2, 3, 2, 5, 8, 2, 3];
+
+function repetidos(array) {
+    array.sort(function(a, b){return a-b});
+    let x = [0];
+    let y = [0];
+    let z = [0];
+    let xc = 0, yc = 0, zc = 0;
+    for (let i = 0; i < array.length; i += 1) { 
+        if (i + 1 < array.length && i - 1 >= 0) {
+            if (array[i] === array[i + 1] || array[i] === array[i - 1]){
+                if (x[0] === 0 || x[0] === array[i] || x[0] === array[i - 1]){
+                    x[xc] = array[i - 1];
+                    xc += 1;
+                }else if (y[0] === 0 || y[0] === array[i] || y[0] === array[i - 1]) {
+                    y[yc] = array[i - 1];
+                    yc += 1;
+                }else{
+                    z[zc] = array[i - 1];
+                    zc += 1;
+                }
+            }
+        }
+    }
+    if (x.length > y.length && x.length > z.length) {
+        return x[0];
+    }else if (y.length > x.length && y.length > z.length) {
+        return y[0];
+    }else{
+        return z[0];
+    }
+}
+
+console.log(repetidos(integers));
 //6 - Crie uma função que receba um número natural (número inteiro não negativo) N e retorne o somatório de todos os números de 1 até N.
 
 
