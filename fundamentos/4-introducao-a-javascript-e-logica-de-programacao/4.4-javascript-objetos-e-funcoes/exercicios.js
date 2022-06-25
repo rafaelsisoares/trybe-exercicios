@@ -187,3 +187,19 @@ console.log(somatorio(n));
 
 //7 - Crie uma função que receba uma string word e outra string ending. Verifique se a string ending é o final da string word. 
 //Considere que a string ending sempre será menor que a string word.
+let word = 'linux';
+let ending = 'ux';
+
+function isEqual(inicio, fim) {
+    let compare = inicio.substr(inicio.length - 2, fim.length + 1);
+    if (fim.length > inicio.length) {
+        return null;
+    }else if (compare === fim) {
+        return true;
+    }else {
+        return false;
+    }
+
+}
+
+console.log(isEqual(word, ending));
