@@ -1,81 +1,95 @@
 /* Pegue cada um dos exercícios de 1 a 5 do final do dia 4.1 e faça com que todos eles sejam funções de um mesmo arquivo.
 As variáveis que você define no começo de cada arquivo devem ser removidas e transformadas em parâmetros das funções. */
-
-//1
-const currentHour = 23;
-let message;
-
-if (currentHour > 4 && currentHour <= 11) {
-    message = 'Hmmm, cheiro de café recém passado';
-}else if (currentHour > 11 && currentHour <= 14) {
-    message = 'Hora do almoço!!!';
-}else if (currentHour > 14 && currentHour <= 18) {
-    message = 'Vamos fazer um bolo pro café da tarde?';
-}else if (currentHour > 18 && currentHour <= 22) {
-    message = 'Rango da noite, vamos jantar :D';
-}else if (currentHour > 22 || currentHour <= 4){
-    message = 'Não deveríamos comer nada, é hora de dormir';
-}
-console.log(message);
-
-//2
+const currentHour = 10;
 const base = 5;
 let heigth = 8;
-const area = base * heigth;
-console.log(area);
+const nota = 88;
+const diaDaSemana = 'segunda-feira';
+//1
 
-const perimeter = (base * 2) + (heigth * 2);
-console.log(perimeter);
+function agenda(hora) {
+    let message = '';
+
+    if (currentHour > 4 && currentHour <= 11) {
+        message = 'Hmmm, cheiro de café recém passado';
+    } else if (currentHour > 11 && currentHour <= 14) {
+        message = 'Hora do almoço!!!';
+    } else if (currentHour > 14 && currentHour <= 18) {
+        message = 'Vamos fazer um bolo pro café da tarde?';
+    } else if (currentHour > 18 && currentHour <= 22) {
+        message = 'Rango da noite, vamos jantar :D';
+    } else if (currentHour > 22 || currentHour <= 4) {
+        message = 'Não deveríamos comer nada, é hora de dormir';
+    }
+    return message;
+}
+console.log(agenda(currentHour));
+
+//2
+function area(comprimento, altura) {
+    const area = comprimento * altura;
+    return area;
+}
+function perimeter(comprimento, altura) {
+    const perimeter = (comprimento * 2) + (altura * 2);
+    return perimeter;
+}
+
+console.log('A area do retangulo é:', area(base, heigth), ' e o perimetro é:', perimeter(base, heigth));
 
 //3
-const nota = 90;
 
-if (nota >= 80) {
-    console.log('Parabéns, você foi aprovado(a)!');
-}else if (nota < 80 && nota >= 60) {
-    console.log('Você está na nossa lista de espera.');
-}else{
-    console.log('Você foi reprovado(a).');
+function isApproved(score) {
+    let result = 0;
+    if (score >= 80) {
+        result = 1;
+    } else if (score < 80 && score >= 60) {
+        result = 2;
+    } else if (score < 60 && score >= 0) {
+        result = 3;
+    } else {
+        result = Math.round((Math.random() * 10) + 4);
+    }
+
+    //4
+    switch (result) {
+        case 1:
+            return 'Parabéns, você foi aprovado(a)!';
+            break;
+        case 2:
+            return 'Você está na nossa lista de espera.';
+            break;
+        case 3:
+            return 'Você foi reprovado(a).';
+            break;
+        default:
+            return 'Não se aplica.';
+            break;
+    }
 }
 
-//4
-const nota = 10;
-let result;
-
-if (nota >= 80) {
-    result = 'aprovado';
-}else if (nota < 80 && nota >= 60) {
-    result = 'lista';
-}else if (nota < 60 && nota >= 0){
-    result = 'reprovado';
-}
-
-switch (result) {
-    case 'aprovado':
-        console.log('Parabéns, você foi aprovado(a)!');
-        break;
-    case 'lista':
-        console.log('Você está na nossa lista de espera.');
-        break;
-    case 'reprovado':
-        console.log('Você foi reprovado(a).');
-        break;
-    default:
-        console.log('Não se aplica.');
-        break;
-}
+console.log(isApproved(nota));
 
 //5
-const myName = "Rafael";
-const birthCity = "São Paulo";
-let birthYear = 1996;
 
-console.log(myName);
-console.log(birthCity);
-console.log(birthYear);
+function weekDays(date) {
+    date.toLowerCase();
+    let mensagem = '';
+    let semana = ['segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira'];
+    let fimDeSemana = ['sabado', 'domingo'];
 
-birthYear = 2030;
-console.log(birthYear);
+    for (let i in semana) {
+        if (date === semana[i]) {
+            mensagem = 'Oba, mais um dia de aprendizado na Trybe >:D';
+        }
+    }
+    for (let j in fimDeSemana) {
+        if (date === fimDeSemana[j]) {
+            mensagem = 'FINALMENTE, descanso merecido UwU';
+        }
+    }
 
-birthCity = 'Maranello';
-console.log(birthCity);
+    return mensagem;
+}
+
+console.log(weekDays(diaDaSemana));
