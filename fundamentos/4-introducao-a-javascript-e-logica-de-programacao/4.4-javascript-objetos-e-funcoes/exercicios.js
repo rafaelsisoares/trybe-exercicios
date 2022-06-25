@@ -174,6 +174,16 @@ function repetidos(array) {
 console.log(repetidos(integers));
 //6 - Crie uma função que receba um número natural (número inteiro não negativo) N e retorne o somatório de todos os números de 1 até N.
 
+let n = 5;
+function somatorio(numero) {
+    let result = 0;
+    for (let i = 1; i <= numero; i += 1) {
+        result += i;
+    }
+    return result
+}
+
+console.log(somatorio(n));
 
 //7 - Crie uma função que receba uma string word e outra string ending. Verifique se a string ending é o final da string word. 
 //Considere que a string ending sempre será menor que a string word.
