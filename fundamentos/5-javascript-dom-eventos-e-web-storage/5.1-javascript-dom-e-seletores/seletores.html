@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <header>
+      <h2 id="page-title">Título</h2>
+      <p class="paragraph">Dê uma cor para este parágrafo!</p>
+      <h4 id="subtitle">Subtítulo</h4>
+      <p class="paragraph">Segundo parágrafo!</p>
+    </header>
+    <script>
+      const paragraph = document.getElementsByClassName("paragraph");
+      paragraph[0].style.color = "red";
+      const title = document.getElementById("page-title");
+      title.innerText = "Life Racing Engines";
+      const secondParagraph = document.getElementsByClassName("paragraph");
+      secondParagraph[0].style.fontFamily = "sans-serif";
+      secondParagraph[1].innerText = "Life, a pior equipe de F1 da história";
+      const title2 = document.getElementById("subtitle");
+      title2.innerText = "Temporada 1990";
+      const secTitle = document.getElementsByTagName('h4');
+      secTitle[0].style.color = 'purple';
+    </script>
+  </body>
+</html>
