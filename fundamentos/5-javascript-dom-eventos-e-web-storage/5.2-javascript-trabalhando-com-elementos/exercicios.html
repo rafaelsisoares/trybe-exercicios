@@ -59,14 +59,22 @@
     <script>
       // COLOQUE SEU CÓDIGO AQUI
       const start = document.firstElementChild.lastElementChild;
+      
       function createTags(tag, classe, conteudo) {
         let newTag = document.createElement(tag);
-        newTag.className = classe;
+        if (classe.length > 0) {
+          newTag.className = classe;
+        }
+      
         newTag.innerText = conteudo;
         return newTag;
       }
 
       start.appendChild(createTags('h1', '', 'Exercício 5.2 - JavaScript DOM'));
+      start.appendChild(createTags('main', 'main-content', ''));
+      start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('section', 'center-content', ''));
+      start.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.appendChild(createTags('p', '', 'Classificação da temporada 2022 da F1'));
+      start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('section', 'left-content', ''));
     </script>
   </body>
 </html>
