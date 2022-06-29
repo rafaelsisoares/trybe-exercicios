@@ -58,8 +58,9 @@
   <body>
     <script>
       // COLOQUE SEU CÓDIGO AQUI
+      let lista = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez'];
       const start = document.firstElementChild.lastElementChild;
-      
+      let imagem = document.getElementsByTagName('img');
       function createTags(tag, classe, conteudo) {
         let newTag = document.createElement(tag);
         if (classe.length > 0) {
@@ -70,11 +71,29 @@
         return newTag;
       }
 
+      function createListsOfTen (itens) {
+        
+        for (let i = 0; i < itens.length; i += 1) {
+          let item = itens[i];
+          let itemLista = document.createElement('li');
+          itemLista.innerText = item;
+          start.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.appendChild(itemLista);
+        }
+      }
+
       start.appendChild(createTags('h1', '', 'Exercício 5.2 - JavaScript DOM'));
       start.appendChild(createTags('main', 'main-content', ''));
       start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('section', 'center-content', ''));
       start.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.appendChild(createTags('p', '', 'Classificação da temporada 2022 da F1'));
       start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('section', 'left-content', ''));
+      start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('section', 'right-content', ''));
+      start.firstElementChild.nextElementSibling.nextElementSibling.lastElementChild.previousElementSibling.appendChild(createTags('img', 'small-image', ''));
+      start.firstElementChild.nextElementSibling.nextElementSibling.lastElementChild.previousElementSibling.firstElementChild.src = 'https://picsum.photos/200';
+      start.firstElementChild.nextElementSibling.nextElementSibling.lastElementChild.appendChild(createTags('ul', '', ''));
+      createListsOfTen(lista);
+      for (let i = 1; i <= 3; i += 1){
+        start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('h3', '', ''));
+      }
     </script>
   </body>
 </html>
