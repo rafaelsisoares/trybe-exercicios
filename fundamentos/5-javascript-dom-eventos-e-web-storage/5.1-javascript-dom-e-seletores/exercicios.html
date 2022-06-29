@@ -56,7 +56,7 @@
  6- Crie uma função que exiba o conteúdo de todas as tags <p> no console.
         */
         const paragrafo = document.getElementById('center-paragraph');
-        paragrafo.innerText = '';
+        paragrafo.innerText = 'Trabalhando com desenvolvimento para a web';
 
         const main = document.getElementsByClassName('main-content');
         main[0].style.backgroundColor = 'rgb(76,164,109)';
@@ -66,6 +66,16 @@
 
         const title = document.getElementsByTagName('h1');
         title[0].innerText = 'Exercício 5.1 - JavaScript';
+
+        const texto = document.getElementsByTagName('p');
+        for (let i of texto) {
+            i.innerText = i.innerText.toUpperCase();
+        }
+
+        const printConsole = document.getElementsByClassName('center-content');
+        for (let i of printConsole) {
+            console.log(i.innerText);
+        }
 
     </script>
   </body>
