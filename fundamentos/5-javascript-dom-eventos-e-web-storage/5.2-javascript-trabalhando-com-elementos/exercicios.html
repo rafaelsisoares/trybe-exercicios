@@ -103,8 +103,14 @@
       }
       start.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.remove();
       centralizar[0].style.marginRight = 'auto';
+     
       let verde = document.getElementsByClassName('center-content');
       verde[0].style.backgroundColor = 'green';
+
+      let excluiDaLista = document.getElementsByTagName('li');
+      for (let i = 0; i < 2; i += 1) {
+        excluiDaLista[excluiDaLista.length - 1].remove();
+      }
     </script>
   </body>
 </html>
