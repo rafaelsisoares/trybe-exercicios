@@ -84,6 +84,7 @@
       start.appendChild(createTags('h1', '', 'Exercício 5.2 - JavaScript DOM'));
       start.appendChild(createTags('main', 'main-content', ''));
       let desc = document.getElementsByTagName('h3');
+      let centralizar = document.getElementsByClassName('right-content');
       start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('section', 'center-content', ''));
       start.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.appendChild(createTags('p', '', '#KimiForPresident'));
       start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('section', 'left-content', ''));
@@ -101,6 +102,7 @@
         desc[i].classList = 'description';
       }
       start.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.remove();
+      centralizar[0].style.marginRight = 'auto';
     </script>
   </body>
 </html>
