@@ -18,6 +18,8 @@ createDaysOfTheWeek();
 let decemberDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
 const dias = document.getElementById('days');
 const botao = document.getElementsByClassName('buttons-container');
+const botaoInterage = document.getElementsByTagName('button');
+const holidays = document.getElementsByClassName('holidays');
 function createDays(array) {
   for (let i = 0; i < array.length; i += 1) {
     let dia = array[i];
@@ -40,6 +42,22 @@ function createButton (feriados) {
   button.innerText = feriados;
   botao[0].appendChild(button);
 }
+function retornaFeriados() {
+
+  for (let i = 0; i < holidays.length; i += 1) {
+    holidays[i].style.backgroundColor = 'rgb(238,238,238)';
+  }
+  botaoInterage[0].addEventListener('click', destacaFeriados);
+}
+
+function destacaFeriados() {
+  for (let i = 0; i < holidays.length; i += 1) {
+    holidays[i].style.backgroundColor = 'white';
+  }
+  botaoInterage[0].addEventListener('click', retornaFeriados);
+}
 
 createDays(decemberDaysList);
 createButton('Feriados');
+retornaFeriados();
+/* botaoInterage[0].addEventListener('click', destacaFeriados); */
