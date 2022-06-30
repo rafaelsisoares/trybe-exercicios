@@ -20,6 +20,9 @@ const dias = document.getElementById('days');
 const botao = document.getElementsByClassName('buttons-container');
 const botaoInterage = document.getElementsByTagName('button');
 const holidays = document.getElementsByClassName('holidays');
+const sextaFeira = document.getElementsByClassName('friday');
+let sextaOrigin = [];
+
 function createDays(array) {
   for (let i = 0; i < array.length; i += 1) {
     let dia = array[i];
@@ -29,6 +32,7 @@ function createDays(array) {
 
     if (dia === 4 || dia === 11 || dia === 18 || dia === 25) {
       diaLi.classList += ' friday';
+      sextaOrigin.push(array[i]);
     }
     if (dia === 24 || dia === 25 || dia === 31) {
       diaLi.classList += ' holidays';
@@ -36,11 +40,19 @@ function createDays(array) {
     dias.appendChild(diaLi);
   }
 }
-function createButton (feriados) {
+function createButton (diaDoMes) {
   let button = document.createElement('button');
-  button.id = 'btn-holiday';
-  button.innerText = feriados;
-  botao[0].appendChild(button);
+  if(diaDoMes === 'Feriados') {
+    button.id = 'btn-holiday';
+    button.innerText = diaDoMes;
+    botao[0].appendChild(button);
+  }
+  if(diaDoMes === 'Sexta-feira') {
+    button.id = 'btn-friday';
+    button.innerText = diaDoMes;
+    botao[0].appendChild(button);
+
+  }
 }
 function retornaFeriados() {
 
@@ -56,8 +68,21 @@ function destacaFeriados() {
   }
   botaoInterage[0].addEventListener('click', retornaFeriados);
 }
+function sextou() {
+  for(let i = 0; i < sextaFeira.length; i += 1) {
+    sextaFeira[i].innerText = 'SEXTOOOU!!!!!';
+  }
+  botaoInterage[1].addEventListener('click', naoSextou);
+}
+function naoSextou() {
+  for(let i = 0; i < sextaFeira.length; i += 1) {
+    sextaFeira[i].innerText = sextaOrigin[i];
+  }
+}
 
 createDays(decemberDaysList);
 createButton('Feriados');
+createButton('Sexta-feira');
 retornaFeriados();
+botaoInterage[1].addEventListener('click', sextou);
 /* botaoInterage[0].addEventListener('click', destacaFeriados); */
