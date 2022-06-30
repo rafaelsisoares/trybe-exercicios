@@ -80,9 +80,10 @@
           start.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.appendChild(itemLista);
         }
       }
-
+      
       start.appendChild(createTags('h1', '', 'Exercício 5.2 - JavaScript DOM'));
       start.appendChild(createTags('main', 'main-content', ''));
+      let desc = document.getElementsByTagName('h3');
       start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('section', 'center-content', ''));
       start.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.appendChild(createTags('p', '', '#KimiForPresident'));
       start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('section', 'left-content', ''));
@@ -92,10 +93,13 @@
       start.firstElementChild.nextElementSibling.nextElementSibling.lastElementChild.appendChild(createTags('ul', '', ''));
       createListsOfTen(lista);
       for (let i = 1; i <= 3; i += 1){
-        start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('h3', 'description', ''));
+        start.firstElementChild.nextElementSibling.nextElementSibling.appendChild(createTags('h3', '', ''));
       }
 
-      start.firstElementChild.nextElementSibling.classList = 'title'
+      start.firstElementChild.nextElementSibling.classList = 'title';
+      for (let i = 0; i < desc.length; i += 1) {
+        desc[i].classList = 'description';
+      }
     </script>
   </body>
 </html>
