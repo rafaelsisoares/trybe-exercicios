@@ -24,7 +24,6 @@ const sextaFeira = document.getElementsByClassName('friday');
 const tarefas = document.getElementsByClassName('my-tasks');
 const tarefasSelecionar = document.getElementsByClassName('task');
 let sextaOrigin = [];
-let countClick = 0;
 function createDays(array) {
   for (let i = 0; i < array.length; i += 1) {
     let dia = array[i];
@@ -120,6 +119,22 @@ function taskDays() {
       event.target.style.color = 'rgb(119,119,119)';
     }
   });
+}
+
+function compromissos() {
+  let input = document.getElementById('task-input');
+  let add = document.getElementById('btn-add');
+  let listaDeTarefas = document.querySelector('.task-list');
+  let  compromisso = document.createElement('li');
+  add.addEventListener('click', function(event){
+    if (input.length === 0) {
+      alert('Compromisso Inválido');
+    } else {
+      compromisso.innerText = input;
+      listaDeTarefas.appendChild(compromisso);
+
+    }
+  }) ; 
 }
 
 createDays(decemberDaysList);
