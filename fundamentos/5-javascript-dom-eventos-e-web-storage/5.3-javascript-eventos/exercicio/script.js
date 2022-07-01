@@ -21,6 +21,7 @@ const botao = document.getElementsByClassName('buttons-container');
 const botaoInterage = document.getElementsByTagName('button');
 const holidays = document.getElementsByClassName('holidays');
 const sextaFeira = document.getElementsByClassName('friday');
+const tarefas = document.getElementsByClassName('my-tasks');
 let sextaOrigin = [];
 
 function createDays(array) {
@@ -54,6 +55,11 @@ function createButton (diaDoMes) {
 
   }
 }
+function createTasks(tarefa) {
+  let task = document.createElement('span');
+  task.innerText = tarefa;
+  tarefas[0].appendChild(task);
+}
 function retornaFeriados() {
 
   for (let i = 0; i < holidays.length; i += 1) {
@@ -85,4 +91,15 @@ createButton('Feriados');
 createButton('Sexta-feira');
 retornaFeriados();
 botaoInterage[1].addEventListener('click', sextou);
+dias.addEventListener('mouseover', hideOver);
+dias.addEventListener('mouseout', hideLeave);
+createTasks('Cozinhar');
+
 /* botaoInterage[0].addEventListener('click', destacaFeriados); */
+
+function hideOver(event) {
+  event.target.style.fontSize = '30px';
+}
+function hideLeave(event) {
+  event.target.style.fontSize = '20px';
+}
