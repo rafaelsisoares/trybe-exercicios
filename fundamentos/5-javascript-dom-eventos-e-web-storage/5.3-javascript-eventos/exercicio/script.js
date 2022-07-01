@@ -127,14 +127,14 @@ function compromissos() {
   let listaDeTarefas = document.querySelector('.task-list');
   let  compromisso = document.createElement('li');
   add.addEventListener('click', function(event){
-    if (input.length === 0) {
+    if (input === '') {
       alert('Compromisso Inválido');
     } else {
       compromisso.innerText = input;
       listaDeTarefas.appendChild(compromisso);
 
     }
-  }) ; 
+  }); 
 }
 
 createDays(decemberDaysList);
@@ -148,6 +148,7 @@ createTasks('Cozinhar');
 taskDesc('seagreen');
 selectTask();
 taskDays();
+compromissos();
 
 /* botaoInterage[0].addEventListener('click', destacaFeriados); */
 
