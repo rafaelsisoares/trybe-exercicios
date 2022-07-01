@@ -22,8 +22,9 @@ const botaoInterage = document.getElementsByTagName('button');
 const holidays = document.getElementsByClassName('holidays');
 const sextaFeira = document.getElementsByClassName('friday');
 const tarefas = document.getElementsByClassName('my-tasks');
+const tarefasSelecionar = document.getElementsByClassName('task');
 let sextaOrigin = [];
-
+let countClick = 0;
 function createDays(array) {
   for (let i = 0; i < array.length; i += 1) {
     let dia = array[i];
@@ -41,14 +42,14 @@ function createDays(array) {
     dias.appendChild(diaLi);
   }
 }
-function createButton (diaDoMes) {
+function createButton(diaDoMes) {
   let button = document.createElement('button');
-  if(diaDoMes === 'Feriados') {
+  if (diaDoMes === 'Feriados') {
     button.id = 'btn-holiday';
     button.innerText = diaDoMes;
     botao[0].appendChild(button);
   }
-  if(diaDoMes === 'Sexta-feira') {
+  if (diaDoMes === 'Sexta-feira') {
     button.id = 'btn-friday';
     button.innerText = diaDoMes;
     botao[0].appendChild(button);
@@ -66,6 +67,7 @@ function taskDesc(cor) {
   divTask.style.backgroundColor = cor;
   tarefas[0].appendChild(divTask);
 }
+
 function retornaFeriados() {
 
   for (let i = 0; i < holidays.length; i += 1) {
@@ -81,15 +83,43 @@ function destacaFeriados() {
   botaoInterage[0].addEventListener('click', retornaFeriados);
 }
 function sextou() {
-  for(let i = 0; i < sextaFeira.length; i += 1) {
+  for (let i = 0; i < sextaFeira.length; i += 1) {
     sextaFeira[i].innerText = 'SEXTOOOU!!!!!';
   }
   botaoInterage[1].addEventListener('click', naoSextou);
 }
 function naoSextou() {
-  for(let i = 0; i < sextaFeira.length; i += 1) {
+  for (let i = 0; i < sextaFeira.length; i += 1) {
     sextaFeira[i].innerText = sextaOrigin[i];
   }
+}
+
+function selectTask() {
+  let selectedTasks = document.getElementsByClassName('task selected');
+  let myTasks = document.querySelector('.task');
+  myTasks.addEventListener('click', function (event) {
+    if (selectedTasks.length === 0) {
+      event.target.classList = 'task selected';
+    } else {
+      event.target.classList = 'task'
+    }
+  });
+}
+
+function taskDays() {
+  let selectedTasks = document.getElementsByClassName('task selected');
+  let day = document.querySelector('#days');
+  let task = document.querySelector('.task');
+  let taskColor = task.style.backgroundColor;
+  day.addEventListener('click', function(event){
+    let dayOfTask = event.target.style.color;
+    if(selectedTasks.length > 0 && dayOfTask !== taskColor) {
+      let getColor = selectedTasks[0].style.backgroundColor;
+      event.target.style.color = getColor;
+    } else if (dayOfTask === taskColor) {
+      event.target.style.color = 'rgb(119,119,119)';
+    }
+  });
 }
 
 createDays(decemberDaysList);
@@ -101,6 +131,8 @@ dias.addEventListener('mouseover', hideOver);
 dias.addEventListener('mouseout', hideLeave);
 createTasks('Cozinhar');
 taskDesc('seagreen');
+selectTask();
+taskDays();
 
 /* botaoInterage[0].addEventListener('click', destacaFeriados); */
 
