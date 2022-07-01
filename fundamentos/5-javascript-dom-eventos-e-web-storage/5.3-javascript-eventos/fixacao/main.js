@@ -13,12 +13,18 @@ const classTech = document.querySelector('.tech');
 
 // 2. Crie uma função que adicione a classe 'tech' ao elemento `li` quando for clicado.
 // 2.1. Deve existir apenas um elemento com a classe 'tech'. Como você faz isso?
-secondLi.addEventListener('click', changeClass);
 
 function changeClass() {
-    secondLi.className = 'tech';
+  let getClass = document.querySelector('.container');
+  getClass.addEventListener('click', function(event) {
+    for (let i = 0; i < list; i += 1) {;
+      list[i].removeAttribute('class');
+    }
+    event.target.classList = 'tech';
+  })
 }
 
+changeClass();
 
 // 3. Crie uma função que, ao digitar na caixa de texto, altere o texto do elemento
 // com a classe 'tech';
