@@ -60,6 +60,12 @@ function createTasks(tarefa) {
   task.innerText = tarefa;
   tarefas[0].appendChild(task);
 }
+function taskDesc(cor) {
+  let divTask = document.createElement('div');
+  divTask.classList = 'task';
+  divTask.style.backgroundColor = cor;
+  tarefas[0].appendChild(divTask);
+}
 function retornaFeriados() {
 
   for (let i = 0; i < holidays.length; i += 1) {
@@ -94,6 +100,7 @@ botaoInterage[1].addEventListener('click', sextou);
 dias.addEventListener('mouseover', hideOver);
 dias.addEventListener('mouseout', hideLeave);
 createTasks('Cozinhar');
+taskDesc('seagreen');
 
 /* botaoInterage[0].addEventListener('click', destacaFeriados); */
 
