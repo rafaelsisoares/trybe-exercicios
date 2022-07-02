@@ -65,10 +65,23 @@ function fontFamily() {
     }
 }
 
+function lineSpace() {
+    let spaceClass = document.getElementsByClassName('space');
+    let text = document.getElementById('lineHeight');
+    if(spaceClass.length === 0 || localStorage.getItem('space') === 'false') {
+        text.classList = 'space';
+        localStorage.setItem('space', 'true');
+    } else {
+        text.removeAttribute('class');
+        localStorage.setItem('space', 'false');
+    }
+}
+
 botaoDark.addEventListener('click', darkMode);
 botaoTamanho.addEventListener('click', fontSize);
 botaoCor.addEventListener('click', changeColor);
 botaoEstilo.addEventListener('click', fontFamily);
+botaoEspaco.addEventListener('click', lineSpace);
 
 window.onload = function() {
     if(localStorage.length > 0) {
@@ -83,6 +96,9 @@ window.onload = function() {
         }
         if(localStorage.getItem('family') === 'true') {
             fontFamily();
+        }
+        if(localStorage.getItem('space') === 'true') {
+            lineSpace();
         }
     }
 }

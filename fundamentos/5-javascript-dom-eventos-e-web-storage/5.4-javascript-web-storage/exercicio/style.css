@@ -14,3 +14,7 @@
 .family {
     font-family: monospace;
 }
+
+.space {
+    line-height: 30px;
+}
