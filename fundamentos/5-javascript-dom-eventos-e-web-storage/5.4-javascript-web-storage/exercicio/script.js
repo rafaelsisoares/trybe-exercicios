@@ -36,8 +36,24 @@ function fontSize() {
     }
 }
 
+function changeColor() {
+    let colorClass = document.getElementsByClassName('textColor');
+    let header = document.getElementById('colorHeader');
+    let main = document.getElementById('colorText');
+    if(colorClass.length === 0 || localStorage.getItem('color') === false) {
+        header.classList = 'textColor';
+        main.classList = 'textColor';
+        localStorage.setItem('color', 'true');
+    } else {
+        header.removeAttribute('class');
+        main.removeAttribute('class');
+        localStorage.setItem('color', 'false');
+    }
+}
+
 botaoDark.addEventListener('click', darkMode);
 botaoTamanho.addEventListener('click', fontSize);
+botaoCor.addEventListener('click', changeColor);
 
 window.onload = function() {
     if(localStorage.length > 0) {
@@ -46,6 +62,9 @@ window.onload = function() {
         }
         if(localStorage.getItem('size') === 'true'){
             fontSize();
+        }
+        if(localStorage.getItem('color') === 'true') {
+            changeColor();
         }
     }
 }

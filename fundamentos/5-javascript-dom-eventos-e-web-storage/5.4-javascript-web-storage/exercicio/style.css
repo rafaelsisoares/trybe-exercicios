@@ -6,3 +6,7 @@
 .sizeOfFont {
     font-size: 30px;
 }
+
+.textColor {
+    color: darkred;
+}
