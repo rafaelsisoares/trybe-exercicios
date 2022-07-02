@@ -10,3 +10,7 @@
 .textColor {
     color: darkred;
 }
+
+.family {
+    font-family: monospace;
+}

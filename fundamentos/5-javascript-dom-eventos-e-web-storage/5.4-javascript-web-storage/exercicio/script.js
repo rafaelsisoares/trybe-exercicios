@@ -1,6 +1,8 @@
 const botaoDark = document.getElementById('dark');
 const botaoCor = document.getElementById('cor');
 const botaoTamanho = document.getElementById('font-size');
+const botaoEstilo = document.getElementById('font-family');
+const botaoEspaco = document.getElementById('espaco');
 
 function darkMode() {
     let darkClass = document.getElementsByClassName('dark');
@@ -51,9 +53,22 @@ function changeColor() {
     }
 }
 
+function fontFamily() {
+    let familyClass = document.getElementsByClassName('family');
+    let changeFont = document.getElementById('tipoDeFonte');
+    if(familyClass.length === 0 || localStorage.getItem('family') === 'false') {
+        changeFont.classList = 'family';
+        localStorage.setItem('family', 'true');
+    } else {
+        changeFont.removeAttribute('class');
+        localStorage.setItem('family', 'false');
+    }
+}
+
 botaoDark.addEventListener('click', darkMode);
 botaoTamanho.addEventListener('click', fontSize);
 botaoCor.addEventListener('click', changeColor);
+botaoEstilo.addEventListener('click', fontFamily);
 
 window.onload = function() {
     if(localStorage.length > 0) {
@@ -65,6 +80,9 @@ window.onload = function() {
         }
         if(localStorage.getItem('color') === 'true') {
             changeColor();
+        }
+        if(localStorage.getItem('family') === 'true') {
+            fontFamily();
         }
     }
 }
