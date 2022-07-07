@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Concurso TrybeTrip</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>TrybeTrip</h1>
+      <p>Tenha a chance de ganhar uma viagem para qualquer destino!!</p>
+      <button id="btn-dark-mode"><img src="9056971_dark_mode_icon.png" alt="Icone para ativar o modo escuro" width="30"></button>
+      <button id="btn-text-bigger"><img src="8726552_text_size_icon.png" alt="Icone para aumentar o tamanho da fonte" width="30"></button>
+    </header>
+    <main>
+      <form action="" method="post">
+        <section class="form-content">
+          <div class="quebra-de-linha">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" required/>
+          </div>
+          <div class="quebra-de-linha">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required/>
+          </div>
+          <div class="quebra-de-linha">
+            <fieldset>
+                <legend>Escolha seu destino:</legend>
+                <input type="radio" name="destino" id="cidade" />
+                <label for="cidade">Cidade</label>
+                <input type="radio" name="destino" id="campo" />
+                <label for="campo">Campo</label>
+                <input type="radio" name="destino" id="praia" />
+                <label for="praia">Praia</label>
+                <input type="radio" name="destino" id="montanha" />
+                <label for="montanha">Montanha</label>
+            </fieldset>
+          </div>
+          <div class="quebra-de-linha">
+            <label for=""
+              >Por que você deveria ser a pessoa desenvolvedora a ganhar o
+              concurso TrybeTrip?</label
+            >
+            <textarea
+              name="resposta"
+              id="resposta"
+              cols="30"
+              rows="10"
+              placeholder="Digite aqui sua resposta."
+              required
+            ></textarea>
+            <p id="max-char">Maximo: 500 caracteres</p>
+          </div>
+          <div class="quebra-de-linha">
+            <label for="data"
+              >Qual a melhor data para realizar sua viagem?</label
+            >
+            <input type="date" name="data" id="data" required/>
+          </div>
+          <div class="quebra-de-linha">
+            <input type="checkbox" name="newsletter" id="newsletter">
+            <label for="newsletter">Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?</label>
+          </div>
+            <div class="quebra-de-linha">
+                <input type="checkbox" name="consientimento" id="consientimento" required/>
+                <label for="consientimento"
+                  >Concordo que imagens das minhas férias poderão ser usadas na
+                  divulgação de concursos futuros.</label
+                >
+            </div>
+        </section>
+        <button id="btn-send" type="submit">Enviar</button>
+        <button id="btn-reset" type="reset">Apagar</button>
+      </form>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
