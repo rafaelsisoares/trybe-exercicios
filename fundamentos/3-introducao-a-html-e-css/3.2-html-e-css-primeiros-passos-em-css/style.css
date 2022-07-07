@@ -1,0 +1,37 @@
+h1 {
+    font-size: 3em;
+    color: orange;
+    font-family: sans-serif;
+
+}
+
+body {
+    font-size: 16px;
+}
+
+p {
+    font-weight: 600;
+    font-family: monospace;
+}
+
+#color-list {
+    background-color: yellow;
+    line-height: 30px;
+    text-decoration: underline;
+}
+
+.paralist {
+    background-color: red;
+    color: green;
+    text-align: center;
+}
+
+#red {
+    background-color: red;
+    color: white;
+}
+
+#brown {
+    background-color: brown;
+    color: white;
+}
