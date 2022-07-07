@@ -1,0 +1,20 @@
+.dark {
+    background-color: rgb(28, 29, 29);
+    color: white;
+}
+
+.sizeOfFont {
+    font-size: 30px;
+}
+
+.textColor {
+    color: darkred;
+}
+
+.family {
+    font-family: monospace;
+}
+
+.space {
+    line-height: 30px;
+}
