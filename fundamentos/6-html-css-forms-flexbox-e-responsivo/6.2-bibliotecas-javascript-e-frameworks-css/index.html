@@ -9,6 +9,11 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="bg-success bg-opacity-10">
@@ -48,14 +53,36 @@
           <div class="mb-3">
             <fieldset>
               <legend>Escolha seu destino:</legend>
-              <input class="form-check-input" type="radio" name="destino" id="cidade" />
+              <input
+                class="form-check-input"
+                type="radio"
+                name="destino"
+                id="cidade"
+              />
               <label class="form-check-label me-3" for="cidade">Cidade</label>
-              <input class="form-check-input" type="radio" name="destino" id="campo" />
+              <input
+                class="form-check-input"
+                type="radio"
+                name="destino"
+                id="campo"
+              />
               <label class="form-check-label me-3" for="campo">Campo</label>
-              <input class="form-check-input" type="radio" name="destino" id="praia" />
+              <input
+                class="form-check-input"
+                type="radio"
+                name="destino"
+                id="praia"
+              />
               <label class="form-check-label me-3" for="praia">Praia</label>
-              <input class="form-check-input" type="radio" name="destino" id="montanha" />
-              <label class="form-check-label me-3" for="montanha">Montanha</label>
+              <input
+                class="form-check-input"
+                type="radio"
+                name="destino"
+                id="montanha"
+              />
+              <label class="form-check-label me-3" for="montanha"
+                >Montanha</label
+              >
             </fieldset>
           </div>
           <div class="mb-3">
@@ -75,13 +102,24 @@
             <p id="max-char" class="fw-lighter">Maximo: 500 caracteres</p>
           </div>
           <div class="mb-3">
-            <label for="data"
+            <label for="datepicker"
               >Qual a melhor data para realizar sua viagem?</label
             >
-            <input class="form-control" type="date" name="data" id="data" required />
+            <input
+              class="form-control"
+              type="text"
+              name="data"
+              id="datepicker"
+              required
+            />
           </div>
           <div class="mb-3">
-            <input class="form-check-input" type="checkbox" name="newsletter" id="newsletter" />
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="newsletter"
+              id="newsletter"
+            />
             <label class="form-check-label" for="newsletter"
               >Gostaria de receber outras incríveis oportunidades oferecidas
               pela Trybe?</label
@@ -89,7 +127,7 @@
           </div>
           <div class="mb-3">
             <input
-            class="form-check-input"
+              class="form-check-input"
               type="checkbox"
               name="consientimento"
               id="consientimento"
@@ -101,10 +139,54 @@
             >
           </div>
         </section>
-        <button id="btn-send" class="btn btn-outline-success" type="submit">Enviar</button>
-        <button id="btn-reset" class="btn btn-outline-secondary" type="reset">Apagar</button>
+        <button id="btn-send" class="btn btn-outline-success" type="submit">
+          Enviar
+        </button>
+        <button id="btn-reset" class="btn btn-outline-secondary" type="reset">
+          Apagar
+        </button>
       </form>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        let picker = new Pikaday({field: document.getElementById('datepicker'),
+        format: 'DD MMM YYYY',
+          onSelect: function() {
+              console.log(this.getMoment().format('Do MMMM YYYY'));
+      }});
+      const validate = new window.JustValidate('#form');
+
+      validate
+      .addField('#name', [
+    {
+      rule: 'minLength',
+      value: 10,
+    },
+    {
+      rule: 'maxLength',
+      value: 40,
+    },
+  ])
+  .addField('#email', [
+    {
+      rule: 'required',
+      errorMessage: 'Email is required',
+    },
+    {
+      rule: 'email',
+      errorMessage: 'Email is invalid!',
+    },
+    {
+      rule: 'minLength',
+      value: 10,
+    },
+    {
+      rule: 'maxLength',
+      value: 50,
+    },
+  ]);
+    </script>
   </body>
 </html>
