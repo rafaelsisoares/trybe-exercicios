@@ -17,3 +17,17 @@
   width: 25px;
   margin-left: 10px;
 }
+
+.header-container {
+  background-color: #323433;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.items-header-container {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
