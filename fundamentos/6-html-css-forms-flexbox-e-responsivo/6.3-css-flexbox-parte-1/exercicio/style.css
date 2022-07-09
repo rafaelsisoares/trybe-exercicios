@@ -59,6 +59,8 @@ hr {
   text-align: center;
 }
 
-hr {
-  visibility: hidden;
+.footer-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 }
