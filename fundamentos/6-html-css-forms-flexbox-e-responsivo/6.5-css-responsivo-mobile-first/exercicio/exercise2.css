@@ -1,0 +1,99 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+.container {
+    border: 1px solid black;
+    background-color: rgb(250, 250, 245);
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.alice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    order: -3;
+    background-color: darkorchid;
+    color: #ffffff;
+}
+
+.alice-header p {
+    font-size: 30px;
+    padding: 10px;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+}
+
+.alice-header nav ul {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    list-style: none;
+}
+.alice-header li {
+    padding: 5px;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-size: 20px;
+}
+
+.aside-one {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    padding: 10px;
+}
+
+.aside-one li {
+    padding: 5px;
+}
+
+.aside-one h2 {
+    text-align: center;
+}
+
+.aside-two {
+    padding: 10px; 
+    order: -2;
+    width: 20%;
+}
+
+.aside-two li {
+    padding: 5px;
+}
+
+.aside-two h2 {
+    text-align: center;
+}
+.main-content {
+    width: 50%;
+    order: -1;
+    background-color: rgb(240, 240, 235);
+    padding: 10px;
+}
+
+.main-content h1 {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(240, 240, 235);
+}
+
+footer {
+    color: #ffffff;
+    background-color: darkorchid;
+    padding: 10px;
+}
+
+footer h3, footer p:nth-of-type(1) {
+    text-align: center;
+}
