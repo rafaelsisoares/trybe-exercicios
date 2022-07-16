@@ -49,7 +49,7 @@ const getValueByNumber = (obj, num) => {
 }
 
 const containsKeyAndValue = (obj, key, val) => {
-   if (obj.includes(key) && Object.values(obj).includes(val)) {
+   if (Object.keys(key) && Object.values(obj).includes(val)) {
     return true;
    } else {
     return false;
@@ -62,4 +62,4 @@ console.log(objectSize(lesson3));
 console.log(showValues(lesson2));
 console.log(`No total, ${students(allLessons)} estudantes participaram das aulas`);
 console.log(getValueByNumber(lesson3, 0));
-console.log(containsKeyAndValue(lesson2, 'professor', 'História'));
+console.log(containsKeyAndValue(lesson1, 'numeroEstudantes', 'Matemática'));
