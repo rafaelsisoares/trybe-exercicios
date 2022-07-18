@@ -35,4 +35,7 @@ describe('Testes da função myFizzBuzz', () => {
     test('Testa se a função retorna o proprio numero se receber um numero que não é divisivel por 3 ou 5', () => {
         expect(myFizzBuzz(4)).toBe(4);
     })
+    test('Testa se a função retorna "false" se não receber um numero', () => {
+        expect(myFizzBuzz('10')).toBe(false);
+    })
 })
