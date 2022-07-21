@@ -21,4 +21,39 @@ const hiredEmployee = (fullName) => ({
     email: createEmail(fullName),
 });
 
-console.log(newEmployees(hiredEmployee));
+//console.log(newEmployees(hiredEmployee));
+
+const checkResults = (gamble, drawn) => {
+   if (gamble === drawn) {
+        return 'Parabéns, você ganhou!!';
+    } else {
+        return 'Tente novamente.';
+    }
+}
+
+const bet = (num, callback) => {
+    const drawn = Math.floor((Math.random() * 5) + 1);
+    return callback(num, drawn);
+} 
+
+//console.log(bet(2, checkResults));
+
+const RIGHT_ANSWERS = ['A', 'C', 'B', 'D', 'A', 'A', 'D', 'A', 'D', 'C'];
+const STUDENT_ANSWERS = ['A', 'N.A', 'B', 'D', 'A', 'C', 'N.A', 'A', 'D', 'B'];
+
+const checkScore = (right, student) => {
+    let score = 0;
+    for (let i = 0; i < right.length; i += 1) {
+        if (student[i] === right[i]) {
+            score += 1;
+        } else if (student[i] !== 'N.A') {
+            score -= 0.5;
+        }
+    }
+
+    return score;
+}
+
+const finalScore = (right, student, callback) => `Sua nota final é: ${callback(right, student)}`;
+
+console.log(finalScore(RIGHT_ANSWERS, STUDENT_ANSWERS, checkScore));
