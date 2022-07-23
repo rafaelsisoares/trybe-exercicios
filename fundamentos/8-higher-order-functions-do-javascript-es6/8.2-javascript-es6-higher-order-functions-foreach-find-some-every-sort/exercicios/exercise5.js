@@ -61,5 +61,5 @@ const books = [
     },
   ];
   
-const everyoneWasBornOnSecXX = () => books.every((book) => book.author.birthYear >= 1901);
+const everyoneWasBornOnSecXX = () => books.every((book) => book.author.birthYear >= 1900 && book.author.birthYear < 2000);
 console.log(everyoneWasBornOnSecXX());
