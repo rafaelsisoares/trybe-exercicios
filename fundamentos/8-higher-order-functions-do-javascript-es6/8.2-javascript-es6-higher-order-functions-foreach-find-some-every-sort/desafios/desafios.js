@@ -10,6 +10,7 @@ const usuarios = [
   { nome: 'Maggie', sobreNome: 'Simpson', temCNH: false },
 ];
 
+// usuarios.forEach((user) => console.log(`${user.nome} ${user.sobreNome} tem carta de motorista? ${user.temCNH ? 'Sim' : 'Não'}`));
 
 // Use o FIND para retornar o estado que tem a sigla RR (use mais siglas para validar seu código)
 // Use o forEach para fazer o LOG de todos os estados do array da seguinte forma:
@@ -45,6 +46,19 @@ const estados = [
   { TO: 'Tocantins' },
 ];
 
+const rr = estados.find((sigla) => sigla.RR);
+const ba = estados.find((sigla) => sigla.BA);
+const sp = estados.find((sigla) => sigla.SP);
+const mt = estados.find((sigla) => sigla.MT);
+const sc = estados.find((sigla) => sigla.SC);
+//console.log(rr, ba, sp, mt, sc);
+
+estados.reverse();
+estados.forEach((estado) => {
+  // console.log(`Sigla: ${Object.keys(estado)}, Estado: ${Object.values(estado)}`);
+});
+estados.reverse();
+//console.log(estados);
 
 // Ordene o vetor de estudantes da maior para a menor média, lembrando que a média
 // pode ser calculada somando-se as notas de avalição, projeto e trabalho em grupo
@@ -59,4 +73,9 @@ const pessoasEstudantes = [
   { nome: 'Marlene', avaliacao: 7.5, projeto: 8, trabalhoGrupo: 7 },
 ];
 
-
+pessoasEstudantes.forEach((estudante) => {
+  const media = (estudante.avaliacao + estudante.projeto + estudante.trabalhoGrupo) / 3;
+  estudante.mediaFinal = parseFloat(media).toPrecision(2);
+});
+pessoasEstudantes.sort((a, b) => b.mediaFinal - a.mediaFinal);
+console.log(pessoasEstudantes);
