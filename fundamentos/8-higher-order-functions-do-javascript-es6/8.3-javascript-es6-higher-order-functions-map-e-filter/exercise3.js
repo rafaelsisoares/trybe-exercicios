@@ -60,7 +60,6 @@ const books = [
       releaseYear: 1928,
     },
   ];
-  
 
 const fantasyOrScienceFiction = (array) => {
     const selectedBooks = array.filter((item) => item.genre === 'Ficção Científica' ||
