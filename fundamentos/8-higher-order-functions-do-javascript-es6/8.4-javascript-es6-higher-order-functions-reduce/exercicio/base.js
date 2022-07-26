@@ -60,3 +60,5 @@ const books = [
       releaseYear: 1928,
     },
   ];
+
+module.exports = books;
