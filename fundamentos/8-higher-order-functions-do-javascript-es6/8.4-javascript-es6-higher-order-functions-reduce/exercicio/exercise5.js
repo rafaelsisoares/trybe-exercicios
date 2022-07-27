@@ -5,10 +5,15 @@ const names = [
 ];
 
 function containsA(vetor) {
-    const counterA = vetor.reduce((counter, item) => {
+    const counterA = vetor.reduce((counter, item) => 
+        counter + item.split('').reduce((count, letter) => {
+            (letter.toLowerCase() === 'a') ? count += 1 : count;
+            return count
+        }, 0), 0);
         
-    }, '');
-    return counterA;
-}
+        return counterA;
+    }
+    
+
 
 console.log(containsA(names));

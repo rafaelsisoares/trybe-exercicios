@@ -5,7 +5,7 @@ const arrays = [
   ];
   
   function flatten(array) {
-    const newArray = array.map((vetor) => vetor.reduce((union, array) => union + array));
+    const newArray = array.reduce((vetor, item) => vetor.concat(item), []);
     return newArray;
   }
 
