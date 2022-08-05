@@ -31,9 +31,9 @@ const pokemons = [
     }, 2000);
   }
 
-  const verify = (fail, msg) => (msg) ? console.log(msg) : console.log(fail);
+  /* const verify = (fail, msg) => (msg) ? console.log(msg) : console.log(fail);
   
-  getPokemonDetails((pokemon) => pokemon.name === 'Lapras', verify);
+  getPokemonDetails((pokemon) => pokemon.name === 'Lapras', verify); */
   
   module.exports = {
     getPokemonDetails,
