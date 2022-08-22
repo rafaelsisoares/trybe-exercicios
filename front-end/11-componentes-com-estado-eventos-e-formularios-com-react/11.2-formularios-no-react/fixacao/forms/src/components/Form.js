@@ -4,10 +4,17 @@ class Form extends React.Component{
 
     state = {
         team: '',
+        champion: '',
+        races: 0,
+        opinion: '',
+        agreement: false
     }
 
-    handleSelectChange = (event) => {
-        this.setState({ team: event.target.value});
+    handleChange = ({ target }) => {
+        const { name } = target;
+        const value = (target.type === 'checkbox' ) ? target.checked
+        : target.value;
+        this.setState({[name]: value});
     }
     render() {
         return(
@@ -15,7 +22,7 @@ class Form extends React.Component{
                 <h1>Formulário em React</h1>
                 <form>
                     <label> Escolha uma equipe:
-                        <select name="team" onChange={this.handleSelectChange}>
+                        <select name="team" onChange={this.handleChange}>
                             <option value="">Escolha uma opção...</option>
                             <option value="mercedes">Mercedes</option>
                             <option value="rbr">RedBull</option>
@@ -23,15 +30,18 @@ class Form extends React.Component{
                         </select>
                     </label>
                     <label>Quem ganhará o Mundial de Pilotos deste ano?
-                        <input type="text" name="champion" />
+                        <input type="text" name="champion" onChange={this.handleChange} />
                     </label>
                     <label>Quantas corridas você acha que o calendário deveria ter?
-                        <input type="number" name="races" />
+                        <input type="number" name="races" onChange={this.handleChange} />
                     </label>
                     <label>Descreva o que é a F1 para você
-                        <textarea name="opinion" />
+                        <textarea name="opinion" onChange={this.handleChange} />
                     </label>
-                </form>
+                    <label>Autorizo o compartilhamento dos dados inseridos.
+                        <input type="checkbox" name="agreement" onChange={this.handleChange}/>
+                    </label>
+                </form> 
             </div>
         )
     }
