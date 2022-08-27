@@ -24,7 +24,8 @@ class UserInfo extends React.Component {
 
   shouldComponentUpdate(_nextProps, nextState) {
     const { info } = nextState;
-    const { dob: { age }} = info[0];
+    const [ user ] = info;
+    const { dob: { age }} = user;
     if (age <= MAX_AGE) return true;
     return false;
   }
