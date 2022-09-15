@@ -30,6 +30,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <p>{joke}</p>
+        <input type="button" value="New Joke" onClick={this.fetchJoke} />
       </div>
     );
   }
