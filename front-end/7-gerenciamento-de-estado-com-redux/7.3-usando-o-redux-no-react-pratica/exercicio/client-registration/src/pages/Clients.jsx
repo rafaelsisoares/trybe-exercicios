@@ -15,8 +15,8 @@ class Clients extends React.Component {
                 {
                     clients.length === 0 ? <h4>Nenhum cliente cadastrado</h4>
                     : (
-                        clients.map(({name, age, email, id}) => (
-                            <div key={id}>
+                        clients.map(({name, age, email}) => (
+                            <div key={name}>
                                 <h2>Nome: {name}</h2>
                                 <p>E-mail: {email}</p>
                                 <p>Idade: {age}</p>

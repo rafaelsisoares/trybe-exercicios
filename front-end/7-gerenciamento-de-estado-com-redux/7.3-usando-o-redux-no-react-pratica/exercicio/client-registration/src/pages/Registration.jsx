@@ -5,11 +5,11 @@ import FormRegistration from "../components/FormRegistration";
 
 class Registration extends React.Component{
     render() {
-        const {login} = this.props;
+        const {login, dispatch} = this.props;
         return(
             <section>
                 {
-                    login ? <FormRegistration /> : <h1>Login não efetuado</h1>
+                    login ? <FormRegistration dispatch={dispatch} /> : <h1>Login não efetuado</h1>
                 }
             </section>
         );
