@@ -1,20 +1,26 @@
-import { ADD_CLIENT } from "../actions";
-
+import { ADD_CLIENT, REMOVE_CLIENT } from "../actions";
 
 const INITIAL_STATE = {
-    clients: [],
+  clients: [],
 };
 
 function addClient(state = INITIAL_STATE, action) {
-    switch(action.type) {
-        case ADD_CLIENT:
-            return {
-                ...state,
-                clients: [...state.clients, {...action.payload}],
-            };
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case ADD_CLIENT:
+      return {
+        ...state,
+        clients: [...state.clients, { ...action.payload }],
+      };
+    case REMOVE_CLIENT:
+      return {
+        ...state,
+        clients: state.clients.filter(
+          (client) => client !== state.clients[action.id]
+        ),
+      };
+    default:
+      return state;
+  }
 }
 
 export default addClient;

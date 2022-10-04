@@ -1,8 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeClient } from "../redux/actions";
 
 class Clients extends React.Component {
+  handleClick = ({target}) => {
+    const {dispatch} = this.props;
+    dispatch(removeClient(+target.id));
+  }
   render() {
     const { login, clients } = this.props;
     return (
@@ -12,18 +17,18 @@ class Clients extends React.Component {
         ) : (
           <div>
             <h1>Clientes Cadastrados</h1>
-                {
-                    clients.length === 0 ? <h4>Nenhum cliente cadastrado</h4>
-                    : (
-                        clients.map(({name, age, email}) => (
-                            <div key={name}>
-                                <h2>Nome: {name}</h2>
-                                <p>E-mail: {email}</p>
-                                <p>Idade: {age}</p>
-                            </div>
-                        ))
-                    )
-                }
+            {clients.length === 0 ? (
+              <h4>Nenhum cliente cadastrado</h4>
+            ) : (
+              clients.map(({ name, age, email }, i) => (
+                <div key={name}>
+                  <h3>Nome: {name}</h3>
+                  <p>E-mail: {email}</p>
+                  <p>Idade: {age}</p>
+                  <button type="button" id={i} onClick={this.handleClick}>Excluir</button>
+                </div>
+              ))
+            )}
             <Link to="/registration">Cadastre um novo cliente</Link>
           </div>
         )}
