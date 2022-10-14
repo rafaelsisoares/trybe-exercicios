@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Provider from './contexts/Provider';
+import Provider from './contexts/Provider'; // importando o componente Provider
 import reportWebVitals from './reportWebVitals';
 
+// O componente Provider envolve o componente App
+// Sendo assim: children = <App />
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

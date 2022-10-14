@@ -1,3 +1,5 @@
+// Criação do context
+
 import { createContext } from 'react';
 
 const ColorContext = createContext();
