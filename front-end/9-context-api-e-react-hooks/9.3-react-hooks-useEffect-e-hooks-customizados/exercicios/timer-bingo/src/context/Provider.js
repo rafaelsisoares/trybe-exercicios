@@ -26,7 +26,6 @@ function Provider({ children }) {
 
   const generateNumber = () => {
     const newNumber = Math.floor(Math.random() * MAX_RANDOM_NUMBER + ONE);
-    console.log(newNumber);
     setRandomNumber(newNumber);
   };
 
