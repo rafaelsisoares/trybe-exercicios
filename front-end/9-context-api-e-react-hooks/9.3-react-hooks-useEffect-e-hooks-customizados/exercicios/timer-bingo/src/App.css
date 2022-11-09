@@ -1,0 +1,5 @@
+.timer-container, .number-container {
+  margin: auto;
+  text-align: center;
+  width: 40%;
+}
