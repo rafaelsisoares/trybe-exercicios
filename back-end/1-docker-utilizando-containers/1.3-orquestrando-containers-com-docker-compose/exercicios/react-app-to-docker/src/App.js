@@ -18,6 +18,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <section>
+        <p>Alterando o arquivo antes de rebuildar o contanier</p>
+      </section>
     </div>
   );
 }
