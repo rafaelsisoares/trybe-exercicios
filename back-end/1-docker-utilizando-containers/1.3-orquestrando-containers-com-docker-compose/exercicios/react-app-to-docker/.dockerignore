@@ -1,0 +1,2 @@
+# Arquivos que não serão mandados para o container
+node_modules

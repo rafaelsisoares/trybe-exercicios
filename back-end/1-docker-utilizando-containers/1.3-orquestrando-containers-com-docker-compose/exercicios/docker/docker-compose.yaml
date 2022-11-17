@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  react-app:
+    build: ../react-app-to-docker/
+    restart: always
+    ports:
+      - 8080:3000
