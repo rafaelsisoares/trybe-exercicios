@@ -4,3 +4,5 @@ SELECT 'This is SQL Exercise, Pratice and Solution';
 SELECT 10, 20, 30;
 -- 3.
 SELECT 10 + 15;
+-- 4.
+SELECT 5 + 4 * 2;
