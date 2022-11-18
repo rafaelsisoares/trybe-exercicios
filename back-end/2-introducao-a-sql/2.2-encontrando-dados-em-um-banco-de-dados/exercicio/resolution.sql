@@ -6,3 +6,5 @@ SELECT 10, 20, 30;
 SELECT 10 + 15;
 -- 4.
 SELECT 5 + 4 * 2;
+-- 5.
+SELECT * FROM Scientists.Scientists;
