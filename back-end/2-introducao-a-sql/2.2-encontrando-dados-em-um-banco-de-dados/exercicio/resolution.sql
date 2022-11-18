@@ -10,3 +10,5 @@ SELECT 5 + 4 * 2;
 SELECT * FROM Scientists.Scientists;
 -- 6.
 SELECT Name AS 'Nome do Projeto', Hours AS 'Tempo de Trabalho' FROM Scientists.Projects;
+-- 7.
+SELECT * FROM Scientists.Scientists ORDER BY Name;
