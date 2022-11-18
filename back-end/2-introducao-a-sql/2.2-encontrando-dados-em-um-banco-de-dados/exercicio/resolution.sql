@@ -22,3 +22,5 @@ SELECT Name , Hours FROM Scientists.Projects ORDER BY Hours DESC LIMIT 3;
 SELECT DISTINCT Project FROM Scientists.AssignedTo;
 -- 12.
 SELECT Name FROM Scientists.Projects ORDER BY Hours DESC LIMIT 1;
+-- 13.
+SELECT Name FROM Scientists.Projects ORDER BY Hours LIMIT 1 OFFSET 1;
