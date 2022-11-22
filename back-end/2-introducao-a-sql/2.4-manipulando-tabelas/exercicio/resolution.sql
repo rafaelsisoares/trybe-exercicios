@@ -44,3 +44,7 @@ WHERE domestic_sales > 400000000;
 UPDATE box_office
 SET rating = 6.0
 WHERE international_sales < 300000000 AND domestic_sales > 200000000;
+
+-- 10.
+DELETE FROM box_office WHERE movie_id = 1 OR movie_id = 6 OR movie_id = 7 OR movie_id = 8;
+DELETE FROM movies WHERE length_minutes < 100;
