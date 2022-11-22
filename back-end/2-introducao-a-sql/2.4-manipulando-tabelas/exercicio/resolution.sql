@@ -33,3 +33,9 @@ DELETE FROM movies WHERE title = 'WALL-E';
 -- 7.
 DELETE FROM box_office WHERE movie_id = 2 OR movie_id = 9;
 DELETE FROM movies WHERE director = 'Andrew Stanton';
+
+-- Bonus
+-- 8.
+UPDATE box_office
+SET rating = 9.0
+WHERE domestic_sales > 400000000;
