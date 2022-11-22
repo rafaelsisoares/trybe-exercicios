@@ -9,3 +9,8 @@ INSERT INTO movies (title, director, year, length_minutes) VALUES
 -- 2.
 INSERT INTO box_office (movie_id, rating, domestic_sales, international_sales)
 VALUES (9, 6.8, 450000000, 370000000);
+
+-- 3.
+UPDATE movies
+SET director = 'Andrew Stanton'
+WHERE director = 'John Lasseter' AND id = 9;
