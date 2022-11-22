@@ -1,6 +1,6 @@
 # Exercícios de manipulação de tabelas
 
-Exercícios para prática de manipulação de tabelas SQL
+Exercícios para prática de manipulação de tabelas SQL usando o db pixar
 
 ## Exercícios:
 
@@ -26,6 +26,16 @@ Exercícios para prática de manipulação de tabelas SQL
 6. Exclua da tabela movies o filme “WALL-E”.
 
 7. Exclua da tabela movies todos os filmes dirigidos por “Andrew Stanton”.
+
+<hr />
+
+## Exercícios bônus:
+
+8. Altere a classificação da tabela box_office para 9.0 de todos os filmes que lucraram mais de 400 milhões no mercado interno.
+
+9. Altere a classificação da tabela box_office para 6.0 de todos os filmes que lucraram menos de 300 milhões no mercado internacional e mais de 200 milhões no mercado interno.
+
+10. Exclua da tabela movies todos os filmes com menos de 100 minutos de duração.
 
 <hr />
 
