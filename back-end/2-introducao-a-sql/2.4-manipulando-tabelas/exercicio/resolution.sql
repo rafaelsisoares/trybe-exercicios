@@ -29,3 +29,7 @@ INSERT INTO box_office (movie_id, rating, domestic_sales, international_sales) V
 -- 6.
 DELETE FROM box_office WHERE movie_id = 11;
 DELETE FROM movies WHERE title = 'WALL-E';
+
+-- 7.
+DELETE FROM box_office WHERE movie_id = 2 OR movie_id = 9;
+DELETE FROM movies WHERE director = 'Andrew Stanton';
