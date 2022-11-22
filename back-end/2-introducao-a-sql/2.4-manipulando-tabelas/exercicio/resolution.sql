@@ -25,3 +25,7 @@ INSERT INTO box_office (movie_id, rating, domestic_sales, international_sales) V
 (8, 8.5, 300000000, 250000000),
 (10, 7.4, 460000000, 510000000),
 (11, 9.9, 290000000, 280000000);
+
+-- 6.
+DELETE FROM box_office WHERE movie_id = 11;
+DELETE FROM movies WHERE title = 'WALL-E';
