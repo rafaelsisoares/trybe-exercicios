@@ -14,3 +14,8 @@ VALUES (9, 6.8, 450000000, 370000000);
 UPDATE movies
 SET director = 'Andrew Stanton'
 WHERE director = 'John Lasseter' AND id = 9;
+
+-- 4.
+UPDATE movies
+SET title = 'Ratatouille', year = 2007
+WHERE title = 'ratatui' AND year = 2010;
