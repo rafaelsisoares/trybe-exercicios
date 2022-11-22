@@ -19,3 +19,9 @@ WHERE director = 'John Lasseter' AND id = 9;
 UPDATE movies
 SET title = 'Ratatouille', year = 2007
 WHERE title = 'ratatui' AND year = 2010;
+
+-- 5.
+INSERT INTO box_office (movie_id, rating, domestic_sales, international_sales) VALUES
+(8, 8.5, 300000000, 250000000),
+(10, 7.4, 460000000, 510000000),
+(11, 9.9, 290000000, 280000000);
