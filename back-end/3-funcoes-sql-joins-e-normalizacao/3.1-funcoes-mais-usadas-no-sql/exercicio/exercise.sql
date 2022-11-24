@@ -25,3 +25,7 @@ FROM
 -- 6. Escreva uma query que exiba a quantidade de pessoas que trabalham como pessoas programadoras.
 SELECT job_id, COUNT(*) AS total FROM hr.employees
 GROUP BY job_id HAVING job_id = 'it_prog';
+
+-- 7. Escreva uma query que exiba a quantidade de dinheiro necessária para efetuar o pagamento de cada profissão.
+SELECT job_id, SUM(salary) AS total FROM hr.employees
+GROUP BY job_id;
