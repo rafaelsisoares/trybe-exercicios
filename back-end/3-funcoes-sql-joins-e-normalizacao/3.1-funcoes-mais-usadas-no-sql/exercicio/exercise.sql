@@ -8,3 +8,6 @@ SELECT MAX(salary) - MIN(salary) FROM hr.employees;
 SELECT job_id, AVG(salary) AS average_salary FROM hr.employees
 GROUP BY job_id
 ORDER BY average_salary DESC;
+
+-- 4. Escreva uma query que exiba a quantidade de dinheiro necessária para realizar o pagamento de todas as pessoas funcionárias.
+SELECT SUM(salary) FROM hr.employees;
