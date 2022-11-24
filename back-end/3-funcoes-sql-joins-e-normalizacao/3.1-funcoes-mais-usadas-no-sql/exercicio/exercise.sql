@@ -25,6 +25,9 @@ FROM
 -- 6. Escreva uma query que exiba a quantidade de pessoas que trabalham como pessoas programadoras.
 SELECT job_id, COUNT(*) AS total FROM hr.employees
 GROUP BY job_id HAVING job_id = 'it_prog';
+-- Outra alternativa
+SELECT job_id, COUNT(*) FROM hr.employees
+WHERE job_id = 'it_prog';
 
 -- 7. Escreva uma query que exiba a quantidade de dinheiro necessária para efetuar o pagamento de cada profissão.
 SELECT job_id, SUM(salary) AS total FROM hr.employees
@@ -54,6 +57,10 @@ WHERE phone_number LIKE '515%';
 -- 12. Escreva uma query que só exiba as informações dos funcionários cujo o primeiro nome tenha oito ou mais caracteres.
 SELECT * FROM hr.employees
 WHERE first_name LIKE '________%';
+-- Outra alternativa
+SELECT *
+FROM hr.employees
+WHERE LENGTH(first_name) >= 8;
 
 -- 13. Escreva uma query que exiba as seguintes informações de cada funcionário: id, primeiro nome e ano no qual foi contratado (exiba somente o ano).
 SELECT employee_id, first_name, YEAR(hire_date) AS hire_year FROM hr.employees;
@@ -73,3 +80,5 @@ WHERE MONTH(hire_date) = 7 AND YEAR(hire_date) = 1987;
 
 -- 18. Escreva uma query que exiba as seguintes informações de cada funcionário: nome, sobrenome, tempo que trabalha na empresa (em dias).
 SELECT first_name, last_name, DATEDIFF(NOW(), hire_date) AS days_worked FROM hr.employees;
+-- Outra alternativa
+SELECT first_name, last_name, DATEDIFF(CURRENT_DATE(), hire_date) AS days_worked FROM hr.employees;
