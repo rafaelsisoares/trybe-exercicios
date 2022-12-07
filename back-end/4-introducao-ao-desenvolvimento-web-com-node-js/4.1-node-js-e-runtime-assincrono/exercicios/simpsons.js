@@ -1,14 +1,35 @@
 const fs = require('fs').promises;
+const readline = require('readline-sync');
 
 const read = async () => {
     const simpsonsData = await fs.readFile('./simpsons.json', 'utf-8');
     const simpsonsList = JSON.parse(simpsonsData);
+    return simpsonsList;
+};
+
+const getAllSimpsons = async () => {
+    const simpsonsList = await read();
     const simpsonsNames = simpsonsList.map(({ id, name }) => `${id} - ${name}`);
     simpsonsNames.forEach((name) => console.log(name));
+}
+
+const getSimpsonById = async (id) => {
+    const simpsonsList = await read();
+    const simpson = simpsonsList.find((character) => +character.id === id);
+    if (!simpson) {
+        throw new Error('ID not found');
+    }
+    return simpson;
 };
 
 async function main() {
-    await read();
+    await getAllSimpsons();
+    try {
+        const simpson = await getSimpsonById(6);
+        console.log(simpson);
+    } catch (err) {
+        console.error(err.message);
+    };
 }
 
 main();
