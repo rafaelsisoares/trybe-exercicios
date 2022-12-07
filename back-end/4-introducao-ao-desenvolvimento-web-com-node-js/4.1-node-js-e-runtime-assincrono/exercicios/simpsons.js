@@ -22,6 +22,12 @@ const getSimpsonById = async (id) => {
     return simpson;
 };
 
+const removeSimpson = async () => {
+    const simpsonsList = await read();
+    const newSimpsonsList = simpsonsList.filter(({ id }) => +id !== 10 && +id !== 6);
+    await fs.writeFile('./simpsons.json', JSON.stringify(newSimpsonsList));
+}
+
 async function main() {
     await getAllSimpsons();
     try {
@@ -30,6 +36,7 @@ async function main() {
     } catch (err) {
         console.error(err.message);
     };
+    removeSimpson();
 }
 
 main();
