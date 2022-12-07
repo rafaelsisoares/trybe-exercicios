@@ -1,0 +1,16 @@
+{
+  "name": "my-scripts",
+  "version": "1.0.0",
+  "description": "Exercicios sobre Node.js e NPM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "node",
+    "node.js"
+  ],
+  "author": "Rafael",
+  "license": "ISC"
+}
