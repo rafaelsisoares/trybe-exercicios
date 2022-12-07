@@ -3,7 +3,7 @@ const { bodyMassIndex } = require('./bmi');
 
 function main() {
     const weight = readline.questionFloat("What' your weight? ");
-    const height = readline.question("What' your height? ");
+    const height = readline.questionFloat("What' your height? ");
     console.log(bodyMassIndex(weight, height));
 };
 
