@@ -13,5 +13,8 @@
     "node.js"
   ],
   "author": "Rafael",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
