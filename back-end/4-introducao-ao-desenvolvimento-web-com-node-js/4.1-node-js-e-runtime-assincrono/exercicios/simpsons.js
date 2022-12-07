@@ -28,6 +28,12 @@ const removeSimpson = async () => {
     await fs.writeFile('./simpsons.json', JSON.stringify(newSimpsonsList));
 }
 
+const createSimpsonsFamily = async () => {
+    const simpsonsList = await read();
+    const simpsonsFamily = simpsonsList.filter(({ id }) => +id >= 1 && +id <= 4);
+    await fs.writeFile('./simpsonFamily.json', JSON.stringify(simpsonsFamily));
+};
+
 async function main() {
     await getAllSimpsons();
     try {
@@ -37,6 +43,7 @@ async function main() {
         console.error(err.message);
     };
     removeSimpson();
+    createSimpsonsFamily();
 }
 
 main();
