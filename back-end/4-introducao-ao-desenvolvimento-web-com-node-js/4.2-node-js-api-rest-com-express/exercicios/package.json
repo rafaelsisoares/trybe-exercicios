@@ -11,5 +11,8 @@
     "express"
   ],
   "author": "Rafael",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.17"
+  }
 }
