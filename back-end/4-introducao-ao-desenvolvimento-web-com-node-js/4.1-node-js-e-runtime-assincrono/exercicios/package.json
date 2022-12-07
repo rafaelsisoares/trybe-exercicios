@@ -4,7 +4,8 @@
   "description": "Exercicios sobre Node.js e NPM",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bmi": "node index.js"
   },
   "keywords": [
     "npm",
