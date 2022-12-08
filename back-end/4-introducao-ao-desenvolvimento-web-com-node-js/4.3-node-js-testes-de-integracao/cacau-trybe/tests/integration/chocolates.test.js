@@ -57,7 +57,6 @@ const { expect } = chai;
 describe("Testando a API", function () {
   beforeEach(() => {
     sinon.stub(fs, "readFile").resolves(mockFile);
-    sinon.stub(fs, "writeFile").resolves();
   });
 
   afterEach(() => {
@@ -78,7 +77,7 @@ describe("Testando a API", function () {
       const response = await chai.request(app).get("/chocolates/4");
 
       expect(response).to.have.status(200);
-      expect(response.body.chocolates).to.deep.equal({
+      expect(response.body.chocolate).to.deep.equal({
         id: 4,
         name: "Mounds",
         brandId: 3,
