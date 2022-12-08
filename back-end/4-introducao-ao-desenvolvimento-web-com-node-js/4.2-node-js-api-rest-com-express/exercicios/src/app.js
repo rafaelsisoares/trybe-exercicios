@@ -17,12 +17,26 @@ const read = async () => {
   }
 };
 
+app.get('/movies/search', async (req, res) => {
+  const { q } = req.query;
+  try {
+    const moviesList = await read();
+    if (q) {
+      const targetMovie = moviesList.filter((movies) => movies.movie.toLowerCase().includes(q));
+      res.status(200).json(targetMovie);
+    } else {
+      res.status(200).end();
+    }
+  } catch (err) {
+    res.status(500).send({ message: err.message });
+  }
+});
+
 app.get('/movies/:id', async (req, res) => {
   const { id } = req.params;
   const moviesList = await read();
   const targetMovie = moviesList.find((movies) => movies.id === +id);
-  if (!moviesList || !targetMovie) res.status(404).json({ error: 'Not Found' });
-  else res.status(200).json(targetMovie);
+  res.status(200).json(targetMovie);
 });
 
 app.get('/movies', async (_req, res) => {
