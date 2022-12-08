@@ -9,9 +9,9 @@ app.get("/chocolates", async (_req, res) => {
 });
 
 app.get("/chocolates/total", async (_req, res) => {
-    const chocolates = await cacauTrybe.getNumberOfChocolates();
-    res.status(200).json({ total: chocolates });
-  });
+  const chocolates = await cacauTrybe.getAllChocolates();
+  res.status(200).json({ total: chocolates.length });
+});
 
 app.get("/chocolates/:id", async (req, res) => {
   const { id } = req.params;
