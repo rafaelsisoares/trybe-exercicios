@@ -15,6 +15,11 @@ const read = async () => {
   }
 };
 
+app.get('/movies', async (req, res) => {
+    const moviesList = await read();
+    res.status(200).json(moviesList);
+});
+
 module.exports = {
   app,
 };
