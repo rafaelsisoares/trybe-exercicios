@@ -3,9 +3,11 @@ const express = require('express');
 const fs = require('fs').promises;
 
 const app = express();
+const moviesPath = path.resolve(__dirname, './movies.json');
+
+app.use(express.json());
 
 const read = async () => {
-  const moviesPath = path.resolve(__dirname, './movies.json');
   try {
     const movies = await fs.readFile(moviesPath, 'utf-8');
     const moviesList = JSON.parse(movies);
@@ -23,10 +25,17 @@ app.get('/movies/:id', async (req, res) => {
   else res.status(200).json(targetMovie);
 });
 
-app.get('/movies', async (req, res) => {
+app.get('/movies', async (_req, res) => {
     const moviesList = await read();
     if (!moviesList) res.status(404).json({ error: 'Not Found' });
     else res.status(200).json(moviesList);
+});
+
+app.post('/movies', async (req, res) => {
+  const moviesList = await read();
+  const newMoviesList = [...moviesList, req.body];
+  await fs.writeFile(moviesPath, JSON.stringify(newMoviesList));
+  res.status(201).json(newMoviesList);
 });
 
 module.exports = {
