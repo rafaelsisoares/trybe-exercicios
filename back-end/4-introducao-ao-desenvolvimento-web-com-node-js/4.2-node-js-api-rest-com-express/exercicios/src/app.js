@@ -51,6 +51,16 @@ app.put('/movies/:id', async (req, res) => {
   res.status(202).json(moviesList);
 });
 
+app.delete('/movies/:id', async (req, res) => {
+  const { id } = req.params;
+  const moviesList = await read();
+  const targetMovieId = moviesList.findIndex((movies) => movies.id === +id);
+  moviesList.splice(targetMovieId, 1);
+
+  await fs.writeFile(moviesPath, JSON.stringify(moviesList));
+  res.status(204).end();
+});
+
 module.exports = {
   app,
 };
