@@ -15,9 +15,18 @@ const read = async () => {
   }
 };
 
+app.get('/movies/:id', async (req, res) => {
+  const { id } = req.params;
+  const moviesList = await read();
+  const targetMovie = moviesList.find((movies) => movies.id === +id);
+  if (!moviesList || !targetMovie) res.status(404).json({ error: 'Not Found' });
+  else res.status(200).json(targetMovie);
+});
+
 app.get('/movies', async (req, res) => {
     const moviesList = await read();
-    res.status(200).json(moviesList);
+    if (!moviesList) res.status(404).json({ error: 'Not Found' });
+    else res.status(200).json(moviesList);
 });
 
 module.exports = {
