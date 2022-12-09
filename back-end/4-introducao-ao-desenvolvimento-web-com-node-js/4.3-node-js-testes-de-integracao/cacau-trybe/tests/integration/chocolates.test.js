@@ -57,6 +57,7 @@ const { expect } = chai;
 describe("Testando a API", function () {
   beforeEach(() => {
     sinon.stub(fs, "readFile").resolves(mockFile);
+    sinon.stub(fs, "writeFile").resolves();
   });
 
   afterEach(() => {
@@ -149,6 +150,40 @@ describe("Testando a API", function () {
 
       expect(response).to.have.status(404);
       expect(response.body.chocolates).to.deep.equal([]);
+    });
+  });
+
+  describe('Usando o método PUT em /chocolates/:id', function() {
+    it('Atualiza os dados do chocolate com id 1', async function() {
+      const chocolate = { 
+        name: "Mint Pretty Good",
+        brandId: 2
+      }
+      const response = await chai
+        .request(app)
+        .put('/chocolates/1')
+        .send(chocolate);
+
+      expect(response).to.have.status(200);
+      expect(response.body.chocolate).to.deep.equal({
+        id: 1,
+        name: "Mint Pretty Good",
+        brandId: 2
+      });
+    });
+
+    it('Retorna uma mensagem de erro ao passar um id inválido', async function() {
+      const chocolate = { 
+        name: "Mint Pretty Good",
+        brandId: 2
+      };
+      const response = await chai
+        .request(app)
+        .put('/chocolates/555')
+        .send(chocolate);
+
+        expect(response).to.have.status(404);
+        expect(response.body).to.deep.equal({ message: 'chocolate not found' });
     });
   });
 });
