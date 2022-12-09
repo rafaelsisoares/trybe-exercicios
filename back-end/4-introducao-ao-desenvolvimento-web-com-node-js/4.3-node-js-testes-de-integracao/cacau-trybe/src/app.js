@@ -8,6 +8,13 @@ app.get("/chocolates", async (_req, res) => {
   res.status(200).json({ chocolates });
 });
 
+app.get("/chocolates/search", async (req, res) => {
+  const { name } = req.query;
+  const chocolates = await cacauTrybe.getChocolateByName(name);
+  if (chocolates.length === 0) return res.status(404).json({ chocolates });
+  res.status(200).json({ chocolates });
+});
+
 app.get("/chocolates/total", async (_req, res) => {
   const chocolates = await cacauTrybe.getAllChocolates();
   res.status(200).json({ total: chocolates.length });

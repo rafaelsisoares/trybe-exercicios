@@ -83,11 +83,11 @@ describe("Testando a API", function () {
         brandId: 3,
       });
     });
-    it('Retorna o status 404 ao colocar um id inválido', async function () {
-        const response = await chai.request(app).get("/chocolates/100");
+    it("Retorna o status 404 ao colocar um id inválido", async function () {
+      const response = await chai.request(app).get("/chocolates/100");
 
-        expect(response).to.have.status(404);
-        expect(response.body).to.deep.equal({ message: 'Chocolate not found' });
+      expect(response).to.have.status(404);
+      expect(response.body).to.deep.equal({ message: "Chocolate not found" });
     });
   });
 
@@ -111,40 +111,44 @@ describe("Testando a API", function () {
     });
   });
 
-  describe('Usando o método GET em /chocolates/total', function() {
-    it('Retorna a quantidade de chocolates na base de dados', async function() {
-        const response = await chai.request(app).get("/chocolates/total");
+  describe("Usando o método GET em /chocolates/total", function () {
+    it("Retorna a quantidade de chocolates na base de dados", async function () {
+      const response = await chai.request(app).get("/chocolates/total");
 
-        expect(response).to.have.status(200);
-        expect(response.body).to.deep.equal({ total: 4 });
+      expect(response).to.have.status(200);
+      expect(response.body).to.deep.equal({ total: 4 });
     });
   });
 
-  describe('Usando o método GET em /chocolates/search', function() {
-    it('Retorna os chocolates que tenham Mo em seu nome', async function() {
-      const response = await chai.request(app).get("/chocolates/search?name=Mo");
+  describe("Usando o método GET em /chocolates/search", function () {
+    it("Retorna os chocolates que tenham Mo em seu nome", async function () {
+      const response = await chai
+        .request(app)
+        .get("/chocolates/search?name=Mo");
       const expectedResponse = [
         {
-          "id": 3,
-          "name": "Mon Chéri",
-          "brandId": 2
+          id: 3,
+          name: "Mon Chéri",
+          brandId: 2,
         },
         {
-          "id": 4,
-          "name": "Mounds",
-          "brandId": 3
-        }
-      ]
+          id: 4,
+          name: "Mounds",
+          brandId: 3,
+        },
+      ];
 
       expect(response).to.have.status(200);
       expect(response.body.chocolates).to.deep.equal(expectedResponse);
     });
 
-    it('Retorna uma lista vazia caso não encontre chocolates', async function() {
-      const response = await chai.request(app).get("/chocolates/search?name=ZZZ");
+    it("Retorna uma lista vazia caso não encontre chocolates", async function () {
+      const response = await chai
+        .request(app)
+        .get("/chocolates/search?name=ZZZ");
 
       expect(response).to.have.status(404);
-      expect(response.body).to.deep.equal([]);
+      expect(response.body.chocolates).to.deep.equal([]);
     });
   });
 });
