@@ -119,4 +119,32 @@ describe("Testando a API", function () {
         expect(response.body).to.deep.equal({ total: 4 });
     });
   });
+
+  describe('Usando o método GET em /chocolates/search', function() {
+    it('Retorna os chocolates que tenham Mo em seu nome', async function() {
+      const response = await chai.request(app).get("/chocolates/search?name=Mo");
+      const expectedResponse = [
+        {
+          "id": 3,
+          "name": "Mon Chéri",
+          "brandId": 2
+        },
+        {
+          "id": 4,
+          "name": "Mounds",
+          "brandId": 3
+        }
+      ]
+
+      expect(response).to.have.status(200);
+      expect(response.body.chocolates).to.deep.equal(expectedResponse);
+    });
+
+    it('Retorna uma lista vazia caso não encontre chocolates', async function() {
+      const response = await chai.request(app).get("/chocolates/search?name=ZZZ");
+
+      expect(response).to.have.status(404);
+      expect(response.body).to.deep.equal([]);
+    });
+  });
 });
