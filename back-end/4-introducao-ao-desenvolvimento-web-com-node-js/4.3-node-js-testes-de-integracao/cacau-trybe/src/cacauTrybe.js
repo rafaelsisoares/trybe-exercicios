@@ -2,6 +2,7 @@
 
 const fs = require("fs").promises;
 const { join } = require("path");
+const { app } = require("./app");
 
 const readCacauTrybeFile = async () => {
   const path = "/files/cacauTrybeFile.json";
