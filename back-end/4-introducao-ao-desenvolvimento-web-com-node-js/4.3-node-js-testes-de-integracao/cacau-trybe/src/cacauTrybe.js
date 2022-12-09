@@ -2,7 +2,6 @@
 
 const fs = require("fs").promises;
 const { join } = require("path");
-const { app } = require("./app");
 
 const readCacauTrybeFile = async () => {
   const path = "/files/cacauTrybeFile.json";
@@ -11,6 +10,16 @@ const readCacauTrybeFile = async () => {
     return JSON.parse(contentFile);
   } catch (error) {
     return null;
+  }
+};
+
+const writeCacauTrybeFile = async (chocolateUpdated) => {
+  const path = "/files/cacauTrybeFile.json";
+  try {
+    const fullPath = join(__dirname, path);
+    await fs.writeFile(fullPath, JSON.stringify(chocolateUpdated));
+  } catch (e) {
+    console.error('Erro ao salvar o arquivo', e.message);
   }
 };
 
@@ -35,9 +44,27 @@ const getChocolateByName = async (name) => {
     .includes(name.toLowerCase()));
 };
 
+const updateChocolate = async (id, update) => {
+  const cacauTrybe = await readCacauTrybeFile();
+  const targetChocolate = cacauTrybe.chocolates.find((chocolate) => chocolate.id === id);
+
+  if (targetChocolate) {
+    cacauTrybe.chocolates = cacauTrybe.chocolates.map((chocolate) => {
+      if (chocolate.id === id) return {...chocolate, ...update };
+      return chocolate;
+    });
+
+    await writeCacauTrybeFile(cacauTrybe);
+    return { ...targetChocolate, ...update };
+  }
+  return false;
+};
+
 module.exports = {
   getAllChocolates,
   getChocolateById,
   getChocolateByBrand,
-  getChocolateByName
+  getChocolateByName,
+  writeCacauTrybeFile,
+  updateChocolate
 };
