@@ -2,6 +2,8 @@
 
 const express = require('express');
 require('express-async-errors');
+const morgan = require('morgan');
+const cors = require('cors');
 const validateTeam = require('./middlewares/validateTeam');
 const apiCredentials = require('./middlewares/apiCredentials');
 
@@ -14,6 +16,8 @@ const teams = [
 ];
 
 app.use(express.json());
+app.use(morgan('dev'));
+app.use(cors());
 app.use(apiCredentials);
 
 const existingId = (req, res, next) => {
@@ -35,6 +39,10 @@ app.get('/teams/:id', existingId, (req, res) => {
 
   // Arranja os middlewares para chamar validateTeam primeiro
   app.post('/teams', validateTeam, (req, res) => {
+    if (req.teams.teams.includes(req.body.sigla)
+    && teams.every((team) => team.sigla !== req.body.sigla)) {
+      return res.sendStatus(401);
+    }
     const team = { id: nextId, ...req.body };
     teams.push(team);
     nextId += 1;
@@ -57,5 +65,7 @@ app.delete('/teams/:id', existingId, (req, res) => {
   teams.splice(index, 1);
   res.sendStatus(204);
 });
+
+app.use((_req, res) => res.sendStatus(404));
 
 module.exports = app;

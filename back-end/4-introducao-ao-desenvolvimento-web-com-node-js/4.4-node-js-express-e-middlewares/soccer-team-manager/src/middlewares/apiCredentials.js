@@ -10,6 +10,12 @@ module.exports = async function apiCredentials(req, res, next) {
   const authdata = await fs.readFile('./authdata.json', { encoding: 'utf-8' });
   // readFile nos deu uma string, agora vamos carregar um objeto a partir dela
   const authorized = JSON.parse(authdata);
+  if (token in authorized) {
+    req.teams = authorized[token];
+    next();
+  } else {
+    res.sendStatus(401);
+  }
 
   if (token in authorized) {
     next(); // pode continuar
