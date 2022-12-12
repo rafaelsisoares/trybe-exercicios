@@ -21,16 +21,21 @@ const validateTeam = (req, res, next) => {
     }
   };
 
+const existingId = (req, res, next) => {
+    const { id } = req.params;
+    if (teams.find((team) => team.id === +id)) {
+        next();
+    } else {
+        res.sendStatus(400);
+    }
+};
+
 app.get('/teams', (req, res) => res.json(teams));
 
-app.get('/teams/:id', (req, res) => {
+app.get('/teams/:id', existingId, (req, res) => {
   const id = Number(req.params.id);
-  const team = teams.find(t => t.id === id);
-  if (team) {
-    res.json(team);
-  } else {
-    res.sendStatus(404);
-  }
+  const team = teams.find((t) => t.id === id);
+  res.json(team);
 });
 
   // Arranja os middlewares para chamar validateTeam primeiro
@@ -43,7 +48,7 @@ app.get('/teams/:id', (req, res) => {
   
   app.put('/teams/:id', validateTeam, (req, res) => {
     const id = Number(req.params.id);
-    const team = teams.find(t => t.id === id);
+    const team = teams.find((t) => t.id === id);
     if (team) {
       const index = teams.indexOf(team);
       const updated = { id, ...req.body };
@@ -58,7 +63,7 @@ app.get('/teams/:id', (req, res) => {
 
 app.delete('/teams/:id', (req, res) => {
   const id = Number(req.params.id);
-  const team = teams.find(t => t.id === id);
+  const team = teams.find((t) => t.id === id);
   if (team) {
     const index = teams.indexOf(team);
     teams.splice(index, 1);
