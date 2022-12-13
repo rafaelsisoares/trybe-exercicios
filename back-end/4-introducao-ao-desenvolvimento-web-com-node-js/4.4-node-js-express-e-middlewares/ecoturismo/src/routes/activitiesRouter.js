@@ -11,8 +11,7 @@ router.get('/activities', async (_req, res) => {
 });
 
 router.post('/activities', checkName, async (req, res) => {
-    const { activity } = req.body;
-    res.status(201).json(activity);
+    res.status(201).json({ message: 'Atividade cadastrada com sucesso' });
 });
 
 module.exports = router;
