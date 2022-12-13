@@ -1,8 +1,8 @@
 const fs = require('fs').promises;
-const path = require('path');
+const { join } = require('path');
 
 const reader = async () => {
-    const completePath = path.join(__dirname, '../data/activities.json');
+    const completePath = join(__dirname, '../data/activities.json');
     try {
         const activities = await fs.readFile(completePath, 'utf-8');
         return JSON.parse(activities);
@@ -13,12 +13,33 @@ const reader = async () => {
 
 const writer = async (content) => {
     const activities = await reader();
-    const completePath = path.join(__dirname, '../data/activities.json');
+    const completePath = join(__dirname, '../data/activities.json');
     try {
         const moreActivities = [...activities, content];
         await fs.writeFile(completePath, JSON.stringify(moreActivities));
     } catch (err) {
         console.error(`Não foi possível escrever no arquivo: ${err.message}`);
+    }
+};
+
+const readerAuthData = async () => {
+    const path = join(__dirname, '../data/authdata.json');
+    try {
+        const authData = await fs.readFile(path, 'utf-8');
+        return JSON.parse(authData);
+    } catch (err) {
+        console.error(`Erro: ${err.message}`);
+    }
+};
+
+const writerAuthData = async (authData) => {
+    const path = join(__dirname, '../data/authdata.json');
+    try {
+        const auth = await readerAuthData();
+        const newAuthData = { ...auth, authData };
+        await fs.writeFile(path, JSON.stringify(newAuthData));
+    } catch (err) {
+        console.error(`Erro: ${err.message}`);
     }
 };
 
@@ -31,7 +52,12 @@ const postActivity = async (activity) => {
     await writer(activity);
 };
 
+const registerNewUser = async (newUser) => {
+    await writerAuthData(newUser);
+};
+
 module.exports = {
     getAllActivities,
     postActivity,
+    registerNewUser,
 };

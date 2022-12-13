@@ -10,6 +10,6 @@ module.exports = async function apiCredentials(req, res, next) {
     if (token in authDataParsed) {
         next();
     } else {
-        res.sendStatus(401);
+        res.sendStatus(401).json({ message: 'Não autorizado!' });
     }
 };

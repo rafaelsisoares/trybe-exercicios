@@ -3,7 +3,7 @@ const { Router } = require('express');
 const { checkName } = require('../middlewares/checkName');
 const checkPrice = require('../middlewares/checkPrice');
 const checkDescription = require('../middlewares/checkDescription');
-const { getAllActivities } = require('../utils/activitiesFunctions');
+const { getAllActivities, registerNewUser } = require('../utils/activitiesFunctions');
 const checkCreatedAt = require('../middlewares/checkCreatedAt');
 const checkRating = require('../middlewares/checkRating');
 const checkDifficulty = require('../middlewares/checkDifficulty');
@@ -31,13 +31,14 @@ router.post(
   },
 );
 
-router.post('/signup', (req, res) => {
+router.post('/signup', async (req, res) => {
     const token = tokenGenerator();
     const { firstName } = req.body;
     const newUser = {
         [token]: firstName,
     };
-    
+    await registerNewUser(newUser);
+    res.status(200).json({ token });
 });
 
 module.exports = router;
