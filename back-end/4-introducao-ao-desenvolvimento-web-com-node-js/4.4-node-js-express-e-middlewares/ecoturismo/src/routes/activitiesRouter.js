@@ -8,4 +8,9 @@ router.get('/activities', async (_req, res) => {
     res.status(200).json(activities);
 });
 
+router.post('/activities', async (req, res) => {
+    const { activity } = req.body;
+    res.status(201).json(activity);
+});
+
 module.exports = router;

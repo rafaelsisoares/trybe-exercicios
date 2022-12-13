@@ -11,11 +11,27 @@ const reader = async () => {
     }
 };
 
+const writer = async (content) => {
+    const activities = await reader();
+    const completePath = path.join(__dirname, '../data/activities.json');
+    try {
+        const moreActivities = [...activities, content];
+        await fs.writeFile(completePath, JSON.stringify(moreActivities));
+    } catch (err) {
+        console.error(`Não foi possível escrever no arquivo: ${err.message}`);
+    }
+};
+
 const getAllActivities = async () => {
     const activities = await reader();
     return activities;
 };
 
+const postActivity = async (activity) => {
+    await writer(activity);
+};
+
 module.exports = {
     getAllActivities,
+    postActivity,
 };
