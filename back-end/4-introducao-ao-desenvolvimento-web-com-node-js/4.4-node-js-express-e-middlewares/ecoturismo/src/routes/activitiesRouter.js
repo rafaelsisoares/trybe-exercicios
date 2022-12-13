@@ -7,6 +7,8 @@ const { getAllActivities } = require('../utils/activitiesFunctions');
 const checkCreatedAt = require('../middlewares/checkCreatedAt');
 const checkRating = require('../middlewares/checkRating');
 const checkDifficulty = require('../middlewares/checkDifficulty');
+const apiCredentials = require('../middlewares/apiCredentials');
+const tokenGenerator = require('../utils/tokenGenerator');
 
 const router = Router();
 
@@ -17,6 +19,7 @@ router.get('/activities', async (_req, res) => {
 
 router.post(
   '/activities',
+  apiCredentials,
   checkName,
   checkPrice,
   checkDescription,
@@ -27,5 +30,14 @@ router.post(
     res.status(201).json({ message: 'Atividade cadastrada com sucesso' });
   },
 );
+
+router.post('/signup', (req, res) => {
+    const token = tokenGenerator();
+    const { firstName } = req.body;
+    const newUser = {
+        [token]: firstName,
+    };
+    
+});
 
 module.exports = router;
