@@ -32,11 +32,11 @@ const readerAuthData = async () => {
     }
 };
 
-const writerAuthData = async (authData) => {
+const writerAuthData = async (newUser) => {
     const path = join(__dirname, '../data/authdata.json');
     try {
         const auth = await readerAuthData();
-        const newAuthData = { ...auth, authData };
+        const newAuthData = { ...auth, ...newUser };
         await fs.writeFile(path, JSON.stringify(newAuthData));
     } catch (err) {
         console.error(`Erro: ${err.message}`);
