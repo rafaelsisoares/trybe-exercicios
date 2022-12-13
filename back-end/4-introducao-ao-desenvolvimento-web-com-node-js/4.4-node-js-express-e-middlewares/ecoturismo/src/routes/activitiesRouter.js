@@ -9,6 +9,10 @@ const checkRating = require('../middlewares/checkRating');
 const checkDifficulty = require('../middlewares/checkDifficulty');
 const apiCredentials = require('../middlewares/apiCredentials');
 const tokenGenerator = require('../utils/tokenGenerator');
+const checkFirstName = require('../middlewares/checkFirstName');
+const checkPassword = require('../middlewares/checkPassword');
+const checkEmail = require('../middlewares/checkEmail');
+const checkPhone = require('../middlewares/checkPhone');
 
 const router = Router();
 
@@ -31,7 +35,7 @@ router.post(
   },
 );
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', checkFirstName, checkPassword, checkEmail, checkPhone, async (req, res) => {
     const token = tokenGenerator();
     const { firstName } = req.body;
     const newUser = {
