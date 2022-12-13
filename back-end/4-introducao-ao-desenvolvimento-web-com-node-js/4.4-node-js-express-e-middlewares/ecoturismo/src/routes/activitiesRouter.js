@@ -5,6 +5,7 @@ const checkPrice = require('../middlewares/checkPrice');
 const checkDescription = require('../middlewares/checkDescription');
 const { getAllActivities } = require('../utils/activitiesFunctions');
 const checkCreatedAt = require('../middlewares/checkCreatedAt');
+const checkRating = require('../middlewares/checkRating');
 
 const router = Router();
 
@@ -19,6 +20,7 @@ router.post(
   checkPrice,
   checkDescription,
   checkCreatedAt,
+  checkRating,
   async (_req, res) => {
     res.status(201).json({ message: 'Atividade cadastrada com sucesso' });
   },
