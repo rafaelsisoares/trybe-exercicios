@@ -1,38 +1,38 @@
 'use strict';
 
 module.exports = {
-  up: async (queryInterface, DataTypes) => {
-    return await queryInterface.createTable('Books', {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('Books', {
       id: {
         allowNull: false,
         primaryKey: true,
         autoIncrement: true,
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
       },
       title: {
         allowNull: false,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       author: {
         allowNull: false,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       pageQuantity: {
         allowNull: true,
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         allowNull: false,
       },
       updatedAt: {
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
         allowNull: false,
       },
     });
   },
 
   down: async (queryInterface) => {
-    return await queryInterface.dropTable('books');
+    await queryInterface.dropTable('books');
   }
 };
