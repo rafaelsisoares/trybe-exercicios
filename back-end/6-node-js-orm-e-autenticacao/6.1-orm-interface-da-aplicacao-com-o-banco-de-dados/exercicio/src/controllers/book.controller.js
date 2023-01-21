@@ -10,6 +10,18 @@ const getAll = async (_req, res) => {
     }
 };
 
+const getById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const book = await BookService.getById(id);
+        res.status(200).json(book);
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+};
+
 module.exports = {
     getAll,
+    getById,
 };
