@@ -15,8 +15,20 @@ const create = async (book) => {
     return newBook;
 }
 
+const update = async (book, id) => {
+    const [updatedBook] = await Book.update(book, { where: { id } });
+    return updatedBook;
+};
+
+const remove = async (id) => {
+    const book = await Book.destroy({ where: { id } });
+    return book;
+};
+
 module.exports = {
     getAll,
     getById,
     create,
+    update,
+    remove,
 };
