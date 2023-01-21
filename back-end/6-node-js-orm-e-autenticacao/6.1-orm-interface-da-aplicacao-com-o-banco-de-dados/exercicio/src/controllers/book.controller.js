@@ -21,7 +21,18 @@ const getById = async (req, res) => {
     }
 };
 
+const create = async (req, res) => {
+    try {
+        const newBook = await BookService.create(req.body);
+        res.status(201).json(newBook);
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+};
+
 module.exports = {
     getAll,
     getById,
+    create,
 };
