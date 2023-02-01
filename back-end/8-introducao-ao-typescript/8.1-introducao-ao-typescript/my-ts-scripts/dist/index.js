@@ -1,5 +1,6 @@
 "use strict";
 const numberInput = 7;
+const emailInput = 'test@test.com';
 const itsAPrime = (param) => {
     for (let i = 2; i < param; i += 1) {
         if (param % i === 0) {
@@ -11,3 +12,8 @@ const itsAPrime = (param) => {
 };
 itsAPrime(numberInput) ? console.log(`${numberInput} é primo`)
     : console.log(`${numberInput} não é primo`);
+const validateEmailFormat = (param) => {
+    let re = /\S+@\S+\.\S+/;
+    return re.test(param);
+};
+console.log(validateEmailFormat(emailInput));
