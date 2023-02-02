@@ -5,5 +5,5 @@ const convertArea = (value: number, fromUnit: string, toUnit: string) => {
     const toUnitIndex = areaUnits.indexOf(toUnit);
     const exponent = toUnitIndex - fromUnitIndex;
 
-    return value * Math.pow(10, exponent);
+    return value * Math.pow(100, exponent);
 };
