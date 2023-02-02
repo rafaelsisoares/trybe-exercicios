@@ -11,6 +11,8 @@ const peopleInput = {
     age: 23,
 };
 
+const ageInput = 15;
+
 const itsAPrime = (param: number): boolean => {
     for (let i = 2; i < param; i += 1) {
         if (param % i === 0) {
@@ -45,3 +47,12 @@ const createSimpleSentence = (param: Person): string => {
 };
 
 console.log(createSimpleSentence(peopleInput));
+
+
+const isLegalAge = (param: string | boolean): boolean => {
+    return !!param;
+};
+
+ageInput >= 18
+? console.log(isLegalAge('true'))
+: console.log(isLegalAge(false));
