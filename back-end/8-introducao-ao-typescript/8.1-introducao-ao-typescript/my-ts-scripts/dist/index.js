@@ -1,6 +1,11 @@
 "use strict";
 const numberInput = 7;
 const emailInput = 'test@test.com';
+const numberList = [10, 5, 18, 2, 8, 23];
+const peopleInput = {
+    name: 'Rui',
+    age: 23,
+};
 const itsAPrime = (param) => {
     for (let i = 2; i < param; i += 1) {
         if (param % i === 0) {
@@ -17,3 +22,11 @@ const validateEmailFormat = (param) => {
     return re.test(param);
 };
 console.log(validateEmailFormat(emailInput));
+const sortInput = (param) => {
+    return param.sort((a, b) => a - b);
+};
+console.log(sortInput(numberList));
+const createSimpleSentence = (param) => {
+    return `Olá meu nome é ${param.name} e tenho ${param.age} anos.`;
+};
+console.log(createSimpleSentence(peopleInput));
