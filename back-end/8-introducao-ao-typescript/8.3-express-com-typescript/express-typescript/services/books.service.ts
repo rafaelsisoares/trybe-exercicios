@@ -1,5 +1,5 @@
 // ./services/books.service.ts
-import { BadRequestError } from 'restify-errors';
+import { BadRequestError, NotFoundError } from 'restify-errors';
 
 import connection from '../models/connection';
 import BookModel from '../models/book.model';
@@ -68,6 +68,22 @@ class BookService {
     // depois de todas as verificações chamamos a camada de model
     return this.model.create(book);
 }
+
+public async update(id: number, book: Book): Promise<void> {
+    // vamos utilizar a mesma validação do método create
+    const isValidBook = BookService.validationBook(book);
+    if (typeof isValidBook === 'string') {
+      throw new BadRequestError(isValidBook);
+    }
+
+    const bookFound = await this.model.getById(id);
+
+    if (!bookFound) {
+      throw new NotFoundError('Book not found!');
+    }
+
+    return this.model.update(id, book);
+  }
 }
 
 export default BookService;
