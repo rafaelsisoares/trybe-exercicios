@@ -2,7 +2,7 @@ interface IPost {
     title: string;
     author: string;
     category: string;
-    published: string;
+    publicationDate: string;
 }
 
 interface IPostId extends IPost {

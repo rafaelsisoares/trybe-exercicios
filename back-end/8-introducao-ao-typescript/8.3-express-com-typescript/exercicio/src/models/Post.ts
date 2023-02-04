@@ -1,6 +1,6 @@
 import { Pool, RowDataPacket } from 'mysql2/promise';
 
-import { IPost } from '../interfaces/postInterface';
+import { IPostId } from '../interfaces/postInterface';
 
 export default class PostModel {
     private connection: Pool;
@@ -9,15 +9,15 @@ export default class PostModel {
         this.connection = connection;
     }
 
-    async getAll(): Promise<RowDataPacket[] & IPost[]> {
+    async getAll(): Promise<IPostId[]> {
         const query: string = 'SELECT * FROM Posts';
-        const [posts] = await this.connection.execute<RowDataPacket[] & IPost[]>(query);
+        const [posts] = await this.connection.execute<(RowDataPacket & IPostId)[]>(query);
         return posts;
     };
 
-    async getById(id: number): Promise<IPost> {
-        const query: string = 'SELECT * FROMPosts WHERE id = ?';
-        const [rows] = await this.connection.execute<RowDataPacket[] & IPost>(query, [id]);
+    async getById(id: number): Promise<IPostId> {
+        const query: string = 'SELECT * FROM Posts WHERE id = ?';
+        const [[rows]] = await this.connection.execute<(RowDataPacket & IPostId)[]>(query, [id]);
         return rows;
     }
 };
