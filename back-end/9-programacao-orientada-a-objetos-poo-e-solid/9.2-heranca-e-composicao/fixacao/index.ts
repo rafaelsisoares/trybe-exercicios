@@ -13,12 +13,18 @@ class Superclass {
 // Criação da classe filha
 class Subclass extends Superclass {
     constructor() {
-        super()
+        super();
+        this.isSuper = false;
     }
 };
 
 // Função que recebe uma instância da classe mãe
 const myFunc = (obj: Superclass): string => {
+    if (obj.isSuper) {
+        console.log('Super!');
+    } else {
+        console.log('Sub!');
+    }
     return obj.sayHello();
 }
 
