@@ -4,11 +4,46 @@ export default class Subject {
     private _exams: number[];
     private _works: number[];
 
-    constructor(admission: number, name: string, exams: number[], works: number[]) {
+    constructor(admission: number, name: string) {
         this._admission = admission;
         this._name = name;
-        this._exams = exams;
-        this._works = works;
+        this._exams = [];
+        this._works = [];
+    }
+
+    get name(): string {
+        return this._name;
+    }
+
+    set name(newValue: string) {
+        if (newValue.length < 3) {
+            throw new Error('O nome deve conter no mínimo 3 caracteres');
+        }
+        this._name = newValue;
+    }
+
+    get exams(): number[] {
+        return this._exams;
+    }
+
+    set exams(newValue: number[]) {
+        if (newValue.length > 4) {
+            throw new Error('O estudante só pode ter 4 notas');
+        }
+
+        this._exams = newValue;
+    }
+
+    get works(): number[] {
+        return this._works;
+    }
+
+    set works(newValue: number[]) {
+        if (newValue.length > 2) {
+            throw new Error('O estudante só pode ter 2 notas');
+        }
+
+        this._works = newValue;
     }
 
     sumGrades(): string {
