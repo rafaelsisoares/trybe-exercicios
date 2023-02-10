@@ -1,11 +1,13 @@
+import crypto from 'crypto';
+
 export default class Subject {
-    private _admission: number;
+    private _admission: string;
     private _name: string;
     private _exams: number[];
     private _works: number[];
 
-    constructor(admission: number, name: string) {
-        this._admission = admission;
+    constructor(name: string) {
+        this._admission = crypto.randomUUID();
         this._name = name;
         this._exams = [];
         this._works = [];
@@ -53,7 +55,7 @@ export default class Subject {
             A soma das notas dos trabalhos é ${sumWorks}`;
     }
 
-    media(): string {
+    average(): string {
         const mediaExams = this._exams.reduce((total, grade) => total + grade, 0) / this._exams.length;
         const mediaWorks = this._works.reduce((total, grade) => total + grade, 0) / this._works.length;
         return `A média das notas das provas é: ${mediaExams}
