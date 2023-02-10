@@ -15,3 +15,15 @@ class Item {
         this._price = price;
     }
 }
+
+class Order {
+    private _client: Client;
+    private _items: Item[];
+    private _payment: string;
+
+    constructor(client: Client, items: Item[], payment: string) {
+        this._client = client;
+        this._items = items;
+        this._payment = payment;
+    }
+}
