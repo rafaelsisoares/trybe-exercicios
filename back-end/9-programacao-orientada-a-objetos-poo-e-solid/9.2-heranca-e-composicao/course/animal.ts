@@ -19,7 +19,7 @@ class Animal {
     Obs: Usando essa sintaxe é necessário indicar explicitamente 
     logo antes do nome do atributo se ele é public, private, protected ou readonly
   */
-  constructor(public name: string, private birthDate: Date) { }
+  constructor(public name: string, protected birthDate: Date) { }
 
   get age() {
     /*Para operar com datas, vamos operar somente com milissegundos. Uma data
@@ -62,6 +62,10 @@ Tigre está andando!
 class Bird extends Animal {
     fly() {
       console.log(`${this.name} está voando!`);
+    }
+    showBirthDate() {
+      console.log(this.birthDate);
+      
     }
   }
   
