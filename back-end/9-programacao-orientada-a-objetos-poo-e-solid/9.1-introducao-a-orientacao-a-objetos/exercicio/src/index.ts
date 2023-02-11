@@ -1,6 +1,7 @@
 import Subject from "./classes/Subject";
 import { Client, Item, Order } from "./classes/Restaurant";
 import Data from "./classes/Date";
+import Person from "./classes/Person";
 
 const subject = new Subject('John');
 subject.exams = [10, 5, 9, 3.5];
@@ -21,3 +22,16 @@ console.log(order.totalWithDiscount());
 
 const data = new Data(2023, 2, 10);
 console.log(data);
+console.log('---------------------------------------------');
+
+const joanaBirthDay = new Date('2000-06-10');
+const johnBirthDay = new Date('1990-10-29');
+
+const joana = new Person('Joana', joanaBirthDay);
+const john = new Person('John', johnBirthDay);
+
+console.log(joana.name)
+console.log(joana.birthDate);
+
+console.log(john.name);
+console.log(john.birthDate);
