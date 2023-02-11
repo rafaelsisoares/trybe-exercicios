@@ -1,27 +1,31 @@
 import crypto from 'crypto';
+import Person from './Person';
 
-export default class Subject {
+export default class Student extends Person {
     private _admission: string;
-    private _name: string;
     private _exams: number[];
     private _works: number[];
 
-    constructor(name: string) {
-        this._admission = crypto.randomUUID();
-        this._name = name;
+    constructor(student: Person) {
+        super(student.name, student.birthDate);
+        this._admission = this.generateAdmission();
         this._exams = [];
         this._works = [];
     }
 
+    get admission(): string {
+        return this._admission;
+    }
+
     get name(): string {
-        return this._name;
+        return super.name;
     }
 
     set name(newValue: string) {
         if (newValue.length < 3) {
             throw new Error('O nome deve conter no mínimo 3 caracteres');
         }
-        this._name = newValue;
+        super.name = newValue;
     }
 
     get exams(): number[] {
@@ -60,5 +64,9 @@ export default class Subject {
         const mediaWorks = this._works.reduce((total, grade) => total + grade, 0) / this._works.length;
         return `A média das notas das provas é: ${mediaExams}
             A média das notas dos trabalhos é ${mediaWorks}`;
+    }
+
+    generateAdmission(): string {
+        return `${crypto.randomBytes(16)}`;
     }
 }

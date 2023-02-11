@@ -1,14 +1,17 @@
-import Subject from "./classes/Subject";
+import Student from "./classes/Student";
 import { Client, Item, Order } from "./classes/Restaurant";
 import Data from "./classes/Date";
 import Person from "./classes/Person";
 
-const subject = new Subject('John');
-subject.exams = [10, 5, 9, 3.5];
-subject.works = [9, 10];
+const michael = new Person('Michael', new Date('1977-04-09'));
+const student = new Student(michael);
+student.exams = [10, 5, 9, 3.5];
+student.works = [9, 10];
 
-console.log(subject.sumGrades());
-console.log(subject.average());
+console.log(student.sumGrades());
+console.log(student.average());
+console.log(student.admission);
+
 
 const client = new Client('John');
 const item1 = new Item('Hamburger', 5);
