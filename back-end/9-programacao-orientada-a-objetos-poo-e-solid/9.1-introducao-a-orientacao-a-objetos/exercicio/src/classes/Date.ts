@@ -40,4 +40,60 @@ export default class Data {
     set year(year: number) {
         this._year = year;
     }
+
+    getMonthName(): string {
+        const monthNames = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+        'Julho',
+        'Agosto',
+        'Setembro',
+        'Outubro',
+        'Novembro',
+        'Dezembro',
+    ]
+
+    return monthNames[this.month - 1]
+    }
+
+    isLeapYear(): boolean {
+        return this.year % 4 === 0;
+    }
+
+    compare(date: Data): number {
+        const currentDate = `${this.year}-${this.month}-${this.day}`;
+        const paramDate = `${date.year}-${date.month}-${date.day}`;
+
+        if (new Date(currentDate) > new Date(paramDate)) return 1;
+        if (new Date(currentDate) < new Date(paramDate)) return -1;
+
+        return 0;
+    }
+
+    format(formatting: string): string {
+        const conditions: boolean[] = [
+            (!formatting.match(/a{2,4}/g)),
+            (!formatting.match(/m{2}/g) && !formatting.match(/M{1}/g)),
+            (!formatting.match(/d{2}/g))
+        ];
+
+        if (conditions.every((condition) => condition)) {
+            throw new Error(`O formato passado é inválido ${formatting}`);
+        }
+
+        const day = this.day > 9 ? this.day.toString() : `0${this.day.toString()}`;
+        const month = this.month > 9 ? this.month.toString() : `0${this.month.toString()}`;
+        const year = this.year.toString();
+
+        const dateFormatted = formatting
+        .replace('dd', day).replace('mm', month)
+        .replace('M', this.getMonthName()).replace('aaaa', year)
+        .replace('aa', year.substring(-2));
+
+        return dateFormatted;
+    }
 }
