@@ -2,6 +2,7 @@ import Student from "./classes/Student";
 import { Client, Item, Order } from "./classes/Restaurant";
 import Data from "./classes/Date";
 import Person from "./classes/Person";
+import Subject from "./classes/Subject";
 
 const michael = new Person('Michael', new Date('1977-04-09'));
 const student = new Student(michael);
@@ -38,3 +39,7 @@ console.log(joana.birthDate);
 
 console.log(john.name);
 console.log(john.birthDate);
+
+const math = new Subject('Matemática');
+const history = new Subject('História');
+const philosophy = new Subject('Filosofia');
