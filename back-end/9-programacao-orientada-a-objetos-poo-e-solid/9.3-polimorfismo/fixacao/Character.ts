@@ -53,6 +53,32 @@ class LocalDBModel implements IModel {
     }
 }
 
+class MockDBModel implements IModel {
+    insert(character: Character): DbCharacter {
+        console.log('Personagem criado');
+        return { id: 1, name: 'Peach', specialMove: 'Toad' };
+    }
+
+    getAll() {
+        return [
+            { id: 1, name: 'Samus', specialMove: 'Charge Shot' },
+            { id: 2, name: 'Kirby', specialMove: 'Inhale' },
+        ]
+    }
+
+    getById(id: number) {
+        return { id: 1, name: 'Mario', specialMove: 'Fireball' };
+    }
+    update(id: number, character: Character) {
+        console.log('Personagem atualizado');
+        return { id: 1, name: 'Yoshi', specialMove: 'Egg Lay' };
+    }
+    remove(id: number) {
+        console.log('Personagem excluido');
+        return true;
+    }   
+}
+
 class CharacterService {
     constructor(readonly db: IModel) {}
 
