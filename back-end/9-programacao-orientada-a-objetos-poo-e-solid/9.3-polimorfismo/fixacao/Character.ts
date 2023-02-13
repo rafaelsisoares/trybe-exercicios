@@ -1,6 +1,11 @@
 abstract class Character {
     abstract talk(): void;
     abstract specialMove(): void;
+
+    static showCharacter(character: Character): void {
+        character.talk();
+        character.specialMove();
+    }
 }
 
 class MeleeCharacter extends Character {
@@ -33,7 +38,9 @@ class LongRangeCharacter extends Character {
 const yoshi = new MeleeCharacter('Yoshi', 'Super Dragon');
 const samus = new LongRangeCharacter('Samus', 'Zero Laser');
 
-yoshi.talk();
+/* yoshi.talk();
 yoshi.specialMove();
 samus.talk();
-samus.specialMove();
+samus.specialMove(); */
+Character.showCharacter(yoshi);
+Character.showCharacter(samus);
