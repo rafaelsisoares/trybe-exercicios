@@ -164,3 +164,8 @@ samus.talk();
 samus.specialMove(); */
 Character.showCharacter(yoshi);
 Character.showCharacter(samus);
+
+const local = new CharacterService(new LocalDBModel());
+local.getAll();
+const mock = new CharacterService(new MockDBModel());
+mock.getAll();
