@@ -54,7 +54,7 @@ class LocalDBModel implements IModel {
 }
 
 class CharacterService {
-    constructor(readonly db: LocalDBModel) {}
+    constructor(readonly db: IModel) {}
 
     insert(character: Character) {
         const newCharacter = this.db.insert(character);
