@@ -1,3 +1,5 @@
+import crypto from 'crypto';
+
 import ITenis from "./interfaces/ITenis";
 import Quadra from "./Quadra";
 import normas from "./normas/normasDeUso";
