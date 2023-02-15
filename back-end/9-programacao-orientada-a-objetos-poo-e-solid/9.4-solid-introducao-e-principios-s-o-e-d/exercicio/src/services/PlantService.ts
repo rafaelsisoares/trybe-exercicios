@@ -2,41 +2,10 @@ import fs from 'fs/promises';
 import path from 'path';
 import HttpException from '../exceptions/HttpException';
 
-interface IPlant {
-  id: number,
-  breed: string,
-  needsSun: boolean,
-  origin: string,
-  size: number,
-  waterFrequency: number,
-}
-
-type INewPlant = Omit<IPlant, 'id' | 'waterFrequency'>;
-
-interface IOpsInfo {
-  createdPlants: number
-}
-
 class PlantService {
   private readonly plantsFile = path.join(__dirname, '..', 'models', 'database', 'plantsData.json');
 
   private readonly opsFile = path.join(__dirname, '..', 'models', 'database', 'opsInfo.json');
-
-  private async updateOpsInfo(incrementAmount = 1): Promise<number> {
-    const dataRaw = await fs.readFile(this.opsFile, { encoding: 'utf8' });
-    const opsInfo: IOpsInfo = JSON.parse(dataRaw);
-    opsInfo.createdPlants += incrementAmount;
-
-    await fs.writeFile(this.opsFile, JSON.stringify(opsInfo, null, 2));
-
-    return opsInfo.createdPlants;
-  }
-
-  public async getAll(): Promise<IPlant[]> {
-    const dataRaw = await fs.readFile(this.plantsFile, { encoding: 'utf8' });
-    const plants: IPlant[] = JSON.parse(dataRaw);
-    return plants;
-  }
 
   public async create(plant: INewPlant): Promise<IPlant> {
     const {
