@@ -1,5 +1,14 @@
 // ./src/index.ts
 import Connector from './Connector';
+import { RedisConnector } from './Connectors';
+
+// ./src/index.ts
+
+const tokenR = 'ce42033d-9133-457a-a1a1-41ac0b63a333';
+const connR = new RedisConnector({
+  host: 'redisdb',
+  port: 6379,
+});
 
 const token = 'ce42033d-9133-457a-a1a1-41ac0b63a333';
 const conn = new Connector({
