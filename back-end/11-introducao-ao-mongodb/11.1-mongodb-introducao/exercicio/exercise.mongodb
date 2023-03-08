@@ -1,0 +1,7 @@
+// 1 - Retorne o documento com _id = 8
+use('exercises');
+db.bios.findOne({_id: 8});
+
+// 2 - Retorna o documento com _id = 8 mas só exiba os atributos _id e name
+use('exercises');
+db.bios.findOne({_id: 8}, {_id: 1, name: 1});
