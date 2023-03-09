@@ -33,3 +33,7 @@ db.bios.find().limit(2).skip(5);
 // 7 - Retorne a quantidade de documentos da coleção books.
 use('exercises');
 db.books.countDocuments({});
+
+// 8 - Conte quantos livros existem com o status = "PUBLISH"
+use('exercises');
+db.books.countDocuments({status: 'PUBLISH'});
