@@ -21,3 +21,15 @@ db.bios.find().limit(3).pretty();
 // 6 - Retorne 2 documentos da coleção bios pulando os 5 primeiros documentos.
 use('exercises');
 db.bios.find().limit(2).skip(5);
+
+// Copiando o arquivo books.json para o container
+
+// docker cp books.json containerMongo:/tmp/books.json
+
+// Importando o arquivo para o banco de dados
+
+// docker exec containerMongo mongoimport -d exercises -c books --file /tmp/books.json --jsonArray
+
+// 7 - Retorne a quantidade de documentos da coleção books.
+use('exercises');
+db.books.countDocuments({});
