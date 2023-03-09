@@ -58,3 +58,15 @@ db.restaurants.find().sort({'name': 1}).pretty();
 // Ordernação decrescente ou contra alfabética
 use('business');
 db.restaurants.find().sort({'rating': -1}).pretty();
+
+// Métodos de remoção de documentos
+
+// Método deleteOne() -> Deleta o primeiro documento que satisfaz a condição
+// se nenhuma condição for passada, ele removerá o primeiro documento da coleção
+use('business');
+db.restaurants.deleteOne({cuisine: 'Ice Cream, Gelato, Yogurt, Ices'});
+
+// Método deleteMany() -> Deleta todos os documentos que satisfazem a condição
+// se nenhuma condição for passada, ele removerá todos os documentos da coleção
+use('business');
+db.restaurants.deleteMany({cuisine: 'American'});
