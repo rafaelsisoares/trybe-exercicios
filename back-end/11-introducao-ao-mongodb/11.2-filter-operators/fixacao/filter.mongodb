@@ -48,3 +48,13 @@ db.restaurants.countDocuments({
         {$or: [{borough: 'Brooklyn'}, {cuisine: {$ne: 'Delicatessen'}}]}
     ]
 });
+
+// Método sort() -> Método de ordenação
+
+// Ordernação crescente ou alfabética
+use('business');
+db.restaurants.find().sort({'name': 1}).pretty();
+
+// Ordernação decrescente ou contra alfabética
+use('business');
+db.restaurants.find().sort({'rating': -1}).pretty();
