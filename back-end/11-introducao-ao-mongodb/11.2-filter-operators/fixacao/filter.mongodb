@@ -1,0 +1,23 @@
+// Filtros
+
+// Operadores de comparação
+
+// Operador $in -> dentro de
+use('business');
+db.restaurants.find({borough: {$in: ['Queens', 'Staten Island', 'Bronx']}}).count({});
+
+// Operador $ne -> diferente de
+use('business');
+db.restaurants.find({cuisine: {$ne: 'American'}}).count({});
+
+// Operador $gte -> maior ou igual a
+use('business');
+db.restaurants.find({rating: {$gte: 8}}).count({});
+
+// Operador $lt -> menor que
+use('business');
+db.restaurants.find({rating: {$lt: 4}}).count({});
+
+// Operador $nin -> não está dentro de
+use('business');
+db.restaurants.find({rating: {$nin: [5, 6, 7]}}).count({});
