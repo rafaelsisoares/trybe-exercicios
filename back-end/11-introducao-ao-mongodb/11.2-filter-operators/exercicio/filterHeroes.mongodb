@@ -71,3 +71,7 @@ db.superheroes.countDocuments({race: {$exists: false}});
 // Retorne o total de documentos que contêm o campo hairColor.
 use('class');
 db.superheroes.countDocuments({'aspects.hairColor': {$exists: true}});
+
+// Remova apenas um documento publicado pela Sony Pictures.
+use('class');
+db.superheroes.deleteOne({publisher: 'Sony Pictures'});
