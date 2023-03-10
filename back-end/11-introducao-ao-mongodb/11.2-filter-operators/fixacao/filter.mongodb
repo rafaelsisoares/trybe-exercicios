@@ -1,0 +1,72 @@
+// Filtros
+
+// Operadores de comparação
+
+// Operador $in -> dentro de
+use('business');
+db.restaurants.find({borough: {$in: ['Queens', 'Staten Island', 'Bronx']}}).count({});
+
+// Operador $ne -> diferente de
+use('business');
+db.restaurants.find({cuisine: {$ne: 'American'}}).count({});
+
+// Operador $gte -> maior ou igual a
+use('business');
+db.restaurants.find({rating: {$gte: 8}}).count({});
+
+// Operador $lt -> menor que
+use('business');
+db.restaurants.find({rating: {$lt: 4}}).count({});
+
+// Operador $nin -> não está dentro de
+use('business');
+db.restaurants.find({rating: {$nin: [5, 6, 7]}}).count({});
+
+// Operadores lógicos
+
+// Operador $not -> negação
+use('business');
+db.restaurants.countDocuments({rating: {$not: {$lte: 5}}});
+
+// Operador $or -> ou
+use('business');
+db.restaurants.countDocuments({$or: [{rating: {$gte: 6}}, {borough: 'Brooklyn'}]});
+
+// Operador $and -> e
+use('business');
+db.restaurants.countDocuments({$and: [{borough: {$in: ['Queens', 'Staten Island', 'Bronx']}}, {rating: {$gt: 4}}]});
+
+// Operador $nor -> negação do ou
+use('business');
+db.restaurants.countDocuments({$nor: [{rating: {$eq: 1}}, {cuisine: 'American'}]});
+
+// Encadeamento de operadores
+use('business');
+db.restaurants.countDocuments({
+    $and: [
+        {$or: [{rating: {$gt: 6}}, {rating: {$lt: 10}}]},
+        {$or: [{borough: 'Brooklyn'}, {cuisine: {$ne: 'Delicatessen'}}]}
+    ]
+});
+
+// Método sort() -> Método de ordenação
+
+// Ordernação crescente ou alfabética
+use('business');
+db.restaurants.find().sort({'name': 1}).pretty();
+
+// Ordernação decrescente ou contra alfabética
+use('business');
+db.restaurants.find().sort({'rating': -1}).pretty();
+
+// Métodos de remoção de documentos
+
+// Método deleteOne() -> Deleta o primeiro documento que satisfaz a condição
+// se nenhuma condição for passada, ele removerá o primeiro documento da coleção
+use('business');
+db.restaurants.deleteOne({cuisine: 'Ice Cream, Gelato, Yogurt, Ices'});
+
+// Método deleteMany() -> Deleta todos os documentos que satisfazem a condição
+// se nenhuma condição for passada, ele removerá todos os documentos da coleção
+use('business');
+db.restaurants.deleteMany({cuisine: 'American'});
