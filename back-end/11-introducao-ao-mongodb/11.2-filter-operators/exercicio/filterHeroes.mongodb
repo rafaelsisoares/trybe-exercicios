@@ -18,3 +18,7 @@ db.superheroes.findOne({'aspects.height': {$gte: 200}});
 // Retorne o total de super-heróis com 2.00m ou mais.
 use('class');
 db.superheroes.countDocuments({'aspects.height': {$gte: 200}});
+
+// Selecione todos os super-heróis que têm olhos verdes
+use('class');
+db.superheroes.find({'aspects.eyeColor': 'green'});
