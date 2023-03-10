@@ -26,3 +26,7 @@ db.superheroes.find({'aspects.eyeColor': 'green'});
 // Retorne o total de super-heróis com olhos azuis
 use('class');
 db.superheroes.countDocuments({'aspects.eyeColor': 'blue'});
+
+// Selecione todos os super-heróis com cabelos pretos ou carecas
+use('class');
+db.superheroes.find({'aspects.hairColor': {$in: ['black', 'no hair']}});
