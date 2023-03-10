@@ -30,3 +30,7 @@ db.superheroes.countDocuments({'aspects.eyeColor': 'blue'});
 // Selecione todos os super-heróis com cabelos pretos ou carecas
 use('class');
 db.superheroes.find({'aspects.hairColor': {$in: ['black', 'no hair']}});
+
+// Retorne o total de super-heróis com cabelos pretos ou carecas
+use('class');
+db.superheroes.countDocuments({'aspects.hairColor': {$in: ['black', 'no hair']}});
