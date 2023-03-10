@@ -55,3 +55,11 @@ db.superheroes.find({$and: [
     {$or: [{'aspects.height': 180}, {'aspects.height': 200}]},
     {'publisher': 'Marvel Comics'}
 ]});
+
+// Selecione todos os super-heróis que pesem entre 80kg e 100kg, sejam Humanos ou Mutantes e não sejam publicados pela DC Comics.
+use('class');
+db.superheroes.find({$and: [
+    {'aspects.weight': {$gte: 80, $lte: 100}},
+    {$or: [{race: 'Human'}, {race: 'Mutant'}]},
+    {publisher: {$ne: 'DC Comics'}}
+]});
