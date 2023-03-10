@@ -29,6 +29,8 @@ db.movies.find({ratings: {$elemMatch: {$gt: 103}}, category: {$all: ['adventure'
     {title: 1, ratings: 1, category: 1, _id: 0});
 
 // Retorne somente o título de todos os filmes com dois elementos no array category
+use('cinema');
+db.movies.find({category: {$size: 2}}, {_id: 0, title: 1});
 
 // Retorne somente o título de todos os filmes com quatro elementos no array ratings
 
