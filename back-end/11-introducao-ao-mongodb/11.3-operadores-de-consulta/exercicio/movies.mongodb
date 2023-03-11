@@ -56,6 +56,8 @@ db.movies.find({$and: [
 ]})
 
 // Utilizando o operador $regex, retorne todos os filmes em que a descrição comece com a palavra "The"
+use('cinema');
+db.movies.find({description: {$regex: /^the/i}});
 
 // Utilizando o operador $regex, retorne todos os filmes em que a descrição termine com a palavra "humanity."
 
