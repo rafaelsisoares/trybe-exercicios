@@ -41,8 +41,19 @@ use('cinema');
 db.movies.find({category: {$size: 2}, budget: {$mod: [5, 0]}});
 
 // Retorne os filmes da categoria "sci-fi" ou que possua o ratings maior do que 199, exibindo apenas os campos title, ratings e category
+use('cinema');
+db.movies.find({
+    $or: [
+        {category: {$regex: /^sci-fi/i}}, {ratings: {$elemMatch: {$gt: 199}}}
+    ]}, {title: 1, ratings: 1, category: 1, _id: 0});
 
 // Retorne os filmes em que o ratings possua tamanho 4 e que seja da category "adventure" ou "family", mas que não tenha o imdbRating menor que 7
+use('cinema');
+db.movies.find({$and: [
+    {ratings: {$size: 4}},
+    {category: {$in: ['family', 'adventure']}},
+    {imdbRating: {$gte: 7}}
+]})
 
 // Utilizando o operador $regex, retorne todos os filmes em que a descrição comece com a palavra "The"
 
