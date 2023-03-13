@@ -1,0 +1,85 @@
+// Atualizando um documento
+use('exercises');
+db.inventory.updateOne({item: 'paper'}, {$set: {'size.uom': 'cm', status: 'P'}});
+
+// Atualizando vários documentos
+use('exercises');
+db.inventory.updateMany({qty: {$lt: 50}}, {$set: {'size.uom': 'in', status: 'P'}});
+
+// Atualizando vários campos ao mesmo tempo em top level
+use('exercises');
+db.products.updateOne({_id: 110}, {
+    $set: {
+        quantity: 500,
+        details: { model: "14Q3", make: "xyz" },
+        tags: [ "coats", "outerwear", "clothing" ]
+    }
+});
+
+// Atualizando campos embedados
+use('exercises');
+db.products.updateOne({_id: 110}, {$set: {'details.make': 'zzz'}});
+
+// Atualizando arrays
+use('exercises');
+db.products.updateOne({_id: 110}, {$set: {
+    'tags.1': 'rain gear',
+    'ratings.0.rating': 2
+}});
+
+// Multiplicando valores nos campos
+use('exercises');
+db.inventory.updateOne({_id: 111}, {$mul: {price: NumberDecimal('1.25'), qty: 2}});
+
+// Incrementando e decrementando valores
+use('exercises');
+db.increment.updateOne({_id: 1}, {$inc: {quantity: -2, 'metrics.orders': 1}});
+
+// Atualizando o valor do campo com base em um valor mínimo
+use('exercises');
+db.scores.update({ _id: 1 }, { $min: { lowScore: 150 } });
+
+// Atualizando o valor do campo com base em um valor máximo
+use('exercises');
+db.scores.update({ _id: 1 }, { $max: { highScore: 950 } });
+
+// Atualizando o valor do campo com base em um valor do tipo data
+use('exercises');
+db.tags.update(
+  { _id: 1 },
+  {
+    $min: { dateEntered: new Date("2019-09-25") },
+    $max: { dateExpired: new Date("2019-10-02") }
+  }
+);
+
+// Atualizando o valor de um campo com uma data
+use('exercises');
+db.customers.updateOne(
+  { _id: 1 },
+  { $currentDate: {
+      lastModified: true,
+      "cancellation.date": { $type: "timestamp" }
+    }, $set: {
+      "cancellation.reason": "user request",
+      status: "D"
+    }
+  }
+);
+
+// Renomeando um campo
+use('exercises');
+db.fruits.updateOne(
+  { name: "Banana" },
+  { $rename: {
+      "name": "productName"
+    }
+  }
+);
+
+// Removendo um campo
+use('exercises');
+db.fruits.updateMany(
+  { productName: "Banana" },
+  { $unset: { quantity: "" } }
+);
