@@ -1,0 +1,151 @@
+// Adicionando um elemento em umm array usando o operador $push
+
+use('sales');
+db.supplies.updateOne(
+  { _id: 1 },
+  {
+    $push: {
+      items: {
+        "name": "notepad",
+        "price":  35.29,
+        "quantity": 2,
+      },
+    },
+  },
+  { upsert: true },
+);
+
+// Adicionando vários elementos em um array usando o operador $push e o modificador $each
+use('sales');
+db.supplies.updateOne(
+  {},
+  {
+    $push: {
+      items: {
+        $each: [
+          {
+            "name": "pens",
+            "price": 56.12,
+            "quantity": 5,
+          },
+          {
+            "name": "envelopes",
+            "price": 19.95,
+            "quantity": 8,
+          },
+        ],
+      },
+    },
+  },
+  { upsert: true },
+);
+
+// Adicionando vários elementos em um array usando o operador $push e vários modificadores
+// Modificador $each -> para colocar vários elementos em um array
+// Modificador $sort -> para ordenar o array
+// Modificador $slice -> para limitar o tamanho do array
+use('sales');
+db.supplies.updateOne(
+  { _id: 2 },
+  {
+    $push: {
+      items: {
+        $each: [
+          {
+            "name" : "notepad",
+            "price" : 35.29,
+            "quantity" : 2,
+          },
+          {
+            "name": "envelopes",
+            "price": 19.95,
+            "quantity": 8,
+          },
+          {
+            "name": "pens",
+            "price": 56.12,
+            "quantity": 5,
+          },
+        ],
+        $sort: { "quantity": -1 },
+        $slice: 2,
+      },
+    },
+  },
+  { upsert: true },
+);
+
+// Removendo o primeiro elemento do array com o operador $pop
+use('sales');
+db.supplies.updateOne({ _id: 1 }, { $pop: { items: -1 } });
+
+// Removendo o último elemento do array com o operador $pop
+use('sales');
+db.supplies.updateOne({ _id: 1 }, { $pop: { items: 1 } });
+
+// -1 -> Remove o primeiro elemento
+// 1 -> Remove o último elemento
+
+// Removendo elementos de acordo com uma condição usando o operador $pull
+use('sales');
+db.supplies.updateMany(
+  {},
+  {
+    $pull: {
+      items: {
+        name: { $in: ["pens", "envelopes"] },
+      },
+    },
+  },
+);
+
+// Removendo elementos maiores que 6
+use('sales');
+db.profiles.updateOne(
+  { _id: 1 },
+  {
+    $pull: {
+      votes: { $gte: 6 },
+    },
+  },
+);
+
+// Removendo documentos de um array
+use('sales');
+db.survey.updateMany(
+  {},
+  {
+    $pull: {
+      results: { score: 8 , item: "B" },
+    },
+  },
+);
+
+// Adicionando um elemento ao array tags com o operador $addToSet
+use('sales');
+db.inventory.updateOne(
+  { _id: 1 },
+  { $addToSet: { tags: "accessories" } },
+);
+
+// Essa operação não funcionará porque já existe o elemento 'camera' no array tags
+use('sales');
+db.inventory.updateOne(
+  { _id: 1 },
+  { $addToSet: { tags: "camera"  } },
+);
+
+// Adicionando vários elementos no array tags com o operador $addToSet e com o modificador $each
+use('sales');
+db.inventory.updateOne(
+  { _id: 2 },
+  {
+    $addToSet: {
+      tags: {
+        $each: ["camera", "electronics", "accessories"],
+      },
+    },
+  },
+);
+
+// Operador $addToSet -> Adiciona elementos no array caso o array não tenha os elementos a serem inseridos
