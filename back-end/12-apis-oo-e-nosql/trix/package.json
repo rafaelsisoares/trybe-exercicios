@@ -1,0 +1,19 @@
+{
+  "name": "trix",
+  "version": "1.0.0",
+  "description": "API desenvolvida durante a secao 12 de back end",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "typescript"
+  ],
+  "author": "Rafael Soares",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "6.1.8"
+  }
+}
