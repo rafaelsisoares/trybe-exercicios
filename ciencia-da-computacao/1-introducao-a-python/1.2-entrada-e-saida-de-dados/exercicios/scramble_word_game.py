@@ -1,6 +1,8 @@
 import random
 
-words = ['Programação', 'Automobilismo', 'Celular']
+with open('words.txt', mode='r') as file:
+    words = [line.strip("\n") for line in file]
+
 
 word = random.choice(words)
 
