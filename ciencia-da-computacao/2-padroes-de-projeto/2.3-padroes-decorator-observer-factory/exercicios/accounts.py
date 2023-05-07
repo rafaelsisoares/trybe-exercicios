@@ -70,3 +70,26 @@ class ManagerAccount(Account):
         self.add_permission(SupportSystemAccess(True))
         self.add_permission(SalesSystemAccess(True))
         self.add_permission(FinanceSystemAccess(True))
+
+
+if __name__ == "__main__":
+    print('Digite seu nome')
+    name = input()
+    print('Selecione o tipo de conta a ser criada')
+    print('\n1 - Gerente,\n2 - Suporte e vendas,\n3 - Suporte')
+    account_type = input()
+
+    if account_type == "1":
+        new_manager = ManagerAccount(name)
+        print(f"Conta de gerente criada para {name}")
+        print(f"Esta conta tem acesso aos departamentos: {new_manager.show_permissions()}")
+    elif account_type == "2":
+        new_support_and_sale = SupportAndSalesAccount(name)
+        print(f"Conta de gerente criada para {name}")
+        print(f"Esta conta tem acesso aos departamentos: {new_support_and_sale.show_permissions()}")
+    elif account_type == "3":
+        new_support = SupportAccount(name)
+        print(f"Conta de gerente criada para {name}")
+        print(f"Esta conta tem acesso aos departamentos: {new_support.show_permissions()}")
+    else:
+        print("Opção inválida. Por favor, tente novamente.")
