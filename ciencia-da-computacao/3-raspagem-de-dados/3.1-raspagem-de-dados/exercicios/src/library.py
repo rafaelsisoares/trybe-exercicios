@@ -7,3 +7,7 @@ def connect(category):
         for book in db.books.find({'category': category}):
             print(book['title'])
     
+
+print('Escolha uma categoria:')
+category = input()
+connect(category)
