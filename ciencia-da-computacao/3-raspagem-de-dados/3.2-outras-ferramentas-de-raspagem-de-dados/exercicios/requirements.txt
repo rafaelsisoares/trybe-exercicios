@@ -2,3 +2,4 @@ selenium
 beautifulsoup4
 black
 flake8
+requests
