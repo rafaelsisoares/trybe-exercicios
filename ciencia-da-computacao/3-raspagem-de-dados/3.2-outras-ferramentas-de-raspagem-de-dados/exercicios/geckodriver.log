@@ -451,3 +451,92 @@ JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error:
 1684029543607	Marionette	INFO	Stopped listening on port 34905
 JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
 JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1684294080493	geckodriver	INFO	Listening on 127.0.0.1:46217
+1684294081039	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... te" "--remote-debugging-port" "40819" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilepKROu1"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1684294082526	Marionette	INFO	Marionette enabled
+1684294082535	Marionette	INFO	Listening on port 38281
+Read port: 38281
+WebDriver BiDi listening on ws://127.0.0.1:40819
+1684294082913	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilepKROu1/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:40819/devtools/browser/1c69e847-116b-4bdb-90bc-28880bb1e4b7
+1684294120668	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://www.google.com/js/th/x6-XRccfDx3r2O7THpBpFunqW-NsQRs--Fb6O-0HhD0.js line 2 > eval line 662 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://www.google.com/js/th/x6-XRccfDx3r2O7THpBpFunqW-NsQRs--Fb6O-0HhD0.js line 2 > eval line 662 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+Handler function threw an exception: Error: Got notified about channel 77723875672387 more than once.
+Stack: onNetworkEvent@resource://devtools/server/actors/resources/network-events.js:280:13
+#createNetworkEvent@resource://devtools/shared/network-observer/NetworkObserver.sys.mjs:729:46
+@resource://devtools/shared/network-observer/NetworkObserver.sys.mjs:338:33
+makeInfallible/<@resource://devtools/shared/DevToolsInfaillibleUtils.sys.mjs:43:22
+Line: 280, column: 13
+console.error: (new Error("Got notified about channel 77723875672387 more than once.", "resource://devtools/server/actors/resources/network-events.js", 280))
+Handler function threw an exception: Error: Got notified about channel 77723875672373 more than once.
+Stack: onNetworkEvent@resource://devtools/server/actors/resources/network-events.js:280:13
+#createNetworkEvent@resource://devtools/shared/network-observer/NetworkObserver.sys.mjs:729:46
+@resource://devtools/shared/network-observer/NetworkObserver.sys.mjs:338:33
+makeInfallible/<@resource://devtools/shared/DevToolsInfaillibleUtils.sys.mjs:43:22
+Line: 280, column: 13
+console.error: (new Error("Got notified about channel 77723875672373 more than once.", "resource://devtools/server/actors/resources/network-events.js", 280))
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://www.google.com/js/th/x6-XRccfDx3r2O7THpBpFunqW-NsQRs--Fb6O-0HhD0.js line 2 > eval line 662 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal6442450950/layout76, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:300:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:47:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:173:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:452:35\npermitUnload@chrome://global/content/elements/browser-custom-element.js:1736:21\nCanCloseWindow@chrome://browser/content/browser.js:7860:36\nWindowIsClosing@chrome://browser/content/browser.js:7889:7\nBrowserTryToCloseWindow@chrome://browser/content/browser.js:2975:22\noncommand@chrome://browser/content/browser.xhtml:1:24\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal6442450950/layout76, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:300:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:47:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:173:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:452:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal6442450952/layout20, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:300:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:47:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:173:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:452:35\npermitUnload@chrome://global/content/elements/browser-custom-element.js:1736:21\nCanCloseWindow@chrome://browser/content/browser.js:7860:36\nWindowIsClosing@chrome://browser/content/browser.js:7889:7\nBrowserTryToCloseWindow@chrome://browser/content/browser.js:2975:22\noncommand@chrome://browser/content/browser.xhtml:1:24\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Async method failed in safeAsyncMethod" (new Error("Connection closed, pending request to server0.conn0.windowGlobal6442450952/layout20, type getGrids failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:300:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:47:19\ngetAllGrids@resource://devtools/client/fronts/layout.js:173:17\nexports.safeAsyncMethod/<@resource://devtools/shared/async-utils.js:61:25\ngetGrids@resource://devtools/client/inspector/grids/grid-inspector.js:452:35\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.warn: "Inspector destroyed while executing onReflow callback"
+console.warn: "Inspector destroyed while executing onReflow callback"
+console.warn: "Inspector destroyed while executing onReflow callback"
+console.warn: "Inspector destroyed while executing onReflow callback"
+console.warn: "Inspector destroyed while executing onReflow callback"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 576: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 576: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 576: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal6442450962/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:300:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:47:19\n_getWalker@resource://devtools/client/fronts/inspector.js:84:30\ninitialize@resource://devtools/client/fronts/inspector.js:73:12\npermitUnload@chrome://global/content/elements/browser-custom-element.js:1736:21\nCanCloseWindow@chrome://browser/content/browser.js:7860:36\nWindowIsClosing@chrome://browser/content/browser.js:7889:7\nBrowserTryToCloseWindow@chrome://browser/content/browser.js:2975:22\noncommand@chrome://browser/content/browser.xhtml:1:24\n", "resource://devtools/shared/protocol/Front.js", 106))
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 576: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 576: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 576: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 576: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 576: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1684294394724	Marionette	INFO	Stopped listening on port 38281
+console.warn: "Error while destroying front:" "inspector" (new Error("Connection closed, pending request to server0.conn0.windowGlobal21474836481/inspectorActor4, type getWalker failed\n\nRequest stack:\nrequest@resource://devtools/shared/protocol/Front.js:300:14\ngenerateRequestMethods/</frontProto[name]@resource://devtools/shared/protocol/Front/FrontClassWithSpec.js:47:19\n_getWalker@resource://devtools/client/fronts/inspector.js:84:30\ninitialize@resource://devtools/client/fronts/inspector.js:73:12\n", "resource://devtools/shared/protocol/Front.js", 106))
+console.error: services.settings: 
+  Message: StorageError: Storage error: Error: IndexedDB: blocklists/addons-bloomfilters pruneAttachments() IndexedDB:  execute() The application is shutting down
+  Stack:
+    StorageError@resource://services-settings/RemoteSettingsClient.sys.mjs:157:5
+_adjustedError@resource://services-settings/RemoteSettingsClient.sys.mjs:928:14
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:816:38
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+console.warn: services.settings: blocklists/gfx sync interrupted by shutdown
+console.error: (new Error("IndexedDB: main/normandy-recipes getLastModified() IndexedDB:  execute() The application is shutting down", "resource://services-settings/IDBHelpers.jsm", 18))
+1684294400855	geckodriver	INFO	Listening on 127.0.0.1:34945
+1684294401412	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... te" "--remote-debugging-port" "36951" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilelD0ezg"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1684294402572	Marionette	INFO	Marionette enabled
+1684294402580	Marionette	INFO	Listening on port 42263
+Read port: 42263
+WebDriver BiDi listening on ws://127.0.0.1:36951
+1684294402903	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilelD0ezg/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:36951/devtools/browser/eaff3361-169b-4b37-a3eb-061fac982197
+1684294419973	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://www.google.com/js/th/x6-XRccfDx3r2O7THpBpFunqW-NsQRs--Fb6O-0HhD0.js line 2 > eval line 4119 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/P5-LUlKWgeVE-8P4rcqghB-z6blpBMZONJN7JkJDv9g.js line 2 > eval line 4476 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/P5-LUlKWgeVE-8P4rcqghB-z6blpBMZONJN7JkJDv9g.js line 2 > eval line 5714 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://www.google.com/js/th/x6-XRccfDx3r2O7THpBpFunqW-NsQRs--Fb6O-0HhD0.js line 2 > eval line 4119 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/x6-XRccfDx3r2O7THpBpFunqW-NsQRs--Fb6O-0HhD0.js line 2 > eval line 4119 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1684294559316	Marionette	INFO	Stopped listening on port 42263
+1684298859325	geckodriver::marionette	ERROR	Failed to close browser connection: Socket not connected (os error 107)

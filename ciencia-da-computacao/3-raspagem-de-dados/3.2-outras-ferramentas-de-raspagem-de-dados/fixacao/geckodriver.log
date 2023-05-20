@@ -871,3 +871,23 @@ JavaScript warning: https://books.toscrape.com/static/oscar/js/jquery/jquery-1.9
 JavaScript warning: https://books.toscrape.com/static/oscar/js/jquery/jquery-1.9.1.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
 JavaScript warning: https://books.toscrape.com/static/oscar/js/jquery/jquery-1.9.1.min.js, line 2: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
 1683950777221	Marionette	INFO	Stopped listening on port 34507
+1683951002468	geckodriver	INFO	Listening on 127.0.0.1:46499
+1683951003014	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr ... te" "--remote-debugging-port" "58743" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileZXJKh1"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1683951004541	Marionette	INFO	Marionette enabled
+1683951004550	Marionette	INFO	Listening on port 45415
+Read port: 45415
+WebDriver BiDi listening on ws://127.0.0.1:58743
+1683951004995	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileZXJKh1/search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+DevTools listening on ws://127.0.0.1:58743/devtools/browser/4d6adb6e-ea54-484a-b740-0fc7953aac84
+ATTENTION: default value of option mesa_glthread overridden by environment.
+JavaScript warning: https://github.githubassets.com/assets/vendors-node_modules_github_webgl-globe_dist_js_main_js-13e563907b63.js, line 1: Failed to create WebGL context: WebGL creation failed: 
+* tryNativeGL (FEATURE_FAILURE_EGL_NO_CONFIG)
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 576: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1683951063750	Marionette	INFO	Stopped listening on port 45415
