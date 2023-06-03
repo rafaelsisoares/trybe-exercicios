@@ -99,6 +99,18 @@ class LinkedList:
     def is_empty(self):
         return not self.__length
 
+    def clear(self):
+        while not self.is_empty():
+            self.remove_first()
+
+    def __get_node_at(self, position):
+        target_node = self.head_value
+        if target_node:
+            while position > 0 and target_node.next:
+                target_node = target_node.next
+                position -= 1
+        return target_node
+
 
 # Para testar, apenas rode o arquivo com: `python3 linked_list_content.py` :)
 if __name__ == "__main__":
