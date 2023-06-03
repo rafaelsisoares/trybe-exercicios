@@ -93,6 +93,16 @@ class LinkedList:
                 position -= 1
         return target_node
 
+    def index_of(self, value):
+        current_value = self.head_value
+        position = 1
+        while current_value:
+            if current_value.value == value:
+                return position
+            current_value = current_value.next
+            position += 1
+        return -1
+
 
 # Para testar, apenas rode o arquivo com: `python3 linked_list_content.py` :)
 if __name__ == "__main__":
