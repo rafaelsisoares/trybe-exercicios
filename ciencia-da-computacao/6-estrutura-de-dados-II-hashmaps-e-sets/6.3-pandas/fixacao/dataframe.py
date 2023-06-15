@@ -11,3 +11,7 @@ dicionario_de_notas = {
 meu_primeiro_dataframe = pd.DataFrame(dicionario_de_notas)
 
 print(meu_primeiro_dataframe)
+
+
+students_serie = pd.Series(dicionario_de_notas['nome'])
+print(students_serie)
