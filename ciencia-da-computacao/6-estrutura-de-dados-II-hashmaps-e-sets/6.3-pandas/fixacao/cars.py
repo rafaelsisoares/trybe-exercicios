@@ -8,3 +8,10 @@ cars = {
 
 df = pd.DataFrame(cars)
 print(df)
+
+
+model_serie = pd.Series(cars['modelo'])
+power_serie = pd.Series(cars['power'])
+consumption_serie = pd.Series(cars['consumption'])
+
+print(model_serie, power_serie, consumption_serie)
