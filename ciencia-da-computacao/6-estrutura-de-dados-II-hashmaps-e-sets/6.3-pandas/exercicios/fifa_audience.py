@@ -16,3 +16,4 @@ if __name__ == "__main__":
     counter = Counter(list(confederations)).most_common()
     df_confederations = pd.DataFrame(counter, columns=["confederation", "members"])
     print(df_confederations)
+    print(df['country'].loc[df["confederation"] == 'CONMEBOL'])
