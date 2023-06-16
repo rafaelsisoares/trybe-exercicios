@@ -14,6 +14,10 @@ if __name__ == "__main__":
     print(df["country"].loc[df["population_share"] > 2])
     confederations = df["confederation"]
     counter = Counter(list(confederations)).most_common()
-    df_confederations = pd.DataFrame(counter, columns=["confederation", "members"])
+    df_confederations = pd.DataFrame(
+        counter,
+        columns=["confederation", "members"]
+        )
     print(df_confederations)
     print(df['country'].loc[df["confederation"] == 'CONMEBOL'])
+    print(df['tv_audience_share'].loc[df["confederation"] == "UEFA"].mean())
